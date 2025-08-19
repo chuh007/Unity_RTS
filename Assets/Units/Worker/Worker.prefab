@@ -4074,7 +4074,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86a6275c856441f9d726d7c6697fc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalProjector: {fileID: 6488961520331744343}
+  decalProjector: {fileID: 2055636368758132947}
+  <CurrentHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
+  <UnitSo>k__BackingField: {fileID: 11400000, guid: 031d88ecbc9cf624280ad175c9f7bdc4, type: 2}
 --- !u!136 &3207719820740774962
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14084,18 +14087,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decal Projector
       objectReference: {fileID: 0}
+    - target: {fileID: 6077189390330527019, guid: 2414ec2e19fc7f940bbcfeb32b2c0b97, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2414ec2e19fc7f940bbcfeb32b2c0b97, type: 3}
+--- !u!114 &2055636368758132947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1359236000719751599, guid: 2414ec2e19fc7f940bbcfeb32b2c0b97, type: 3}
+  m_PrefabInstance: {fileID: 1034683950693423484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd64549ba34f729c3d864e359e40a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3162443089323287853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2718114438378028113, guid: 2414ec2e19fc7f940bbcfeb32b2c0b97, type: 3}
-  m_PrefabInstance: {fileID: 1034683950693423484}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6488961520331744343 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6077189390330527019, guid: 2414ec2e19fc7f940bbcfeb32b2c0b97, type: 3}
   m_PrefabInstance: {fileID: 1034683950693423484}
   m_PrefabAsset: {fileID: 0}

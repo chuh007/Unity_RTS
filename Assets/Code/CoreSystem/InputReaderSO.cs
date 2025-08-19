@@ -56,7 +56,7 @@ namespace Code.CoreSystem
             else if(context.canceled)
                 OnMouseRightButton?.Invoke(false);
         }
-
+        
         public bool GetMousePosition(out RaycastHit hit, LayerMask targetLayer)
         {
             Camera camera = Camera.main;
