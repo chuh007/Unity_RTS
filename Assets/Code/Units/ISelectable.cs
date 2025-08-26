@@ -4,6 +4,6 @@
     {
         bool IsSelected { get; }
         void Select();
-        void Deselect();
+        void DeSelect();
     }
 }

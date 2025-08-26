@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: WorkerSO
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 40
+  <Prefab>k__BackingField: {fileID: 2374709282000791794, guid: cd06c659fed8492479a18f6020c59467, type: 3}
+  <BuildTime>k__BackingField: 3

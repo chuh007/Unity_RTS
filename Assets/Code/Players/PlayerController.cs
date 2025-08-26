@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Commands;
 using Code.CoreSystem;
 using Code.GameEvents;
 using Code.Units;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Code.Players
 {
@@ -16,24 +20,27 @@ namespace Code.Players
     
     public class PlayerController : MonoBehaviour
     {
+        [Header("Selection settings")]
         [SerializeField] private InputReaderSO inputReader;
         [SerializeField] private LayerMask selectableUnitLayer;
         [SerializeField] private LayerMask floorLayer;
         [SerializeField] private RectTransform selectionBox;
-        
+
         [Space]
-        [Header("Camera settings")]
+        [Header("Camera settings")] 
         [SerializeField] private CameraConfig cameraConfig;
         [SerializeField] private Rigidbody cameraTarget;
-        
-        // private ISelectable _selectedUnit;
+
+        //private ISelectable _selectedUnit;
         private HashSet<ISelectable> _selectedUnits = new HashSet<ISelectable>(12);
         private HashSet<AbstractUnit> _aliveUnits = new HashSet<AbstractUnit>(200);
         private HashSet<AbstractUnit> _addedUnits = new HashSet<AbstractUnit>(24);
         
         private ButtonState _leftButtonState = ButtonState.None;
         private Vector2 _startingMousePosition;
-        
+        private BaseCommandSO _activeCommand;//현재 선택된 커맨드
+        private bool _wasMouseDownOnUI = false;
+
         private void Awake()
         {
             inputReader.OnMouseRightButton += HandleMouseRightButton;
@@ -42,8 +49,9 @@ namespace Code.Players
             Bus<UnitDeselectEvent>.OnEvent += HandleUnitDeselect;
             Bus<UnitSpawnEvent>.OnEvent += HandleUnitSpawn;
             Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
+            Bus<CommandSelectEvent>.OnEvent += HandleCommandSelect;
         }
-        
+
         private void OnDestroy()
         {
             inputReader.OnMouseRightButton -= HandleMouseRightButton;
@@ -51,39 +59,48 @@ namespace Code.Players
             Bus<UnitSelectEvent>.OnEvent -= HandleUnitSelect;
             Bus<UnitDeselectEvent>.OnEvent -= HandleUnitDeselect;
             Bus<UnitSpawnEvent>.OnEvent -= HandleUnitSpawn;
-            Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
+            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
+            Bus<CommandSelectEvent>.OnEvent -= HandleCommandSelect;
         }
-        
+
         private void Update()
         {
             UpdateLeftButtonState();
             HandlePanning();
             HandleDragSelect();
         }
-        
+
         private void UpdateLeftButtonState()
         {
-            if(Mouse.current.leftButton.wasPressedThisFrame)
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
                 _leftButtonState = ButtonState.Pressed;
+            }
             else if (Mouse.current.leftButton.isPressed
                      && !Mouse.current.leftButton.wasPressedThisFrame)
+            {
                 _leftButtonState = ButtonState.Held;
-            else if(Mouse.current.leftButton.wasReleasedThisFrame)
+            }
+            else if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
                 _leftButtonState = ButtonState.Released;
-            else 
+            }
+            else
+            {
                 _leftButtonState = ButtonState.None;
-        }   
-        
+            }
+        }
+
         private void HandlePanning()
         {
             Vector2 movement = inputReader.KeyboardMovement * cameraConfig.KeyboardPanSpeed;
             movement += GetMouseMoveAmount();
             cameraTarget.linearVelocity = new Vector3(movement.x, 0, movement.y);
         }
-        
+
         private void HandleDragSelect()
         {
-            if (selectionBox == null) return;
+            if (selectionBox == null) return; //안전하게 예외처리
 
             switch (_leftButtonState)
             {
@@ -92,22 +109,26 @@ namespace Code.Players
                 case ButtonState.Released: HandleDragEnd(); break;
             }
         }
-        
+
         private void HandleDragStart()
         {
             selectionBox.sizeDelta = Vector2.zero;
             selectionBox.gameObject.SetActive(true);
             _startingMousePosition = inputReader.MousePosition;
+            _addedUnits.Clear(); //이번 드래그에 추가되는 유닛
+            _wasMouseDownOnUI = EventSystem.current.IsPointerOverGameObject();
         }
         
         private void HandleMouseDrag()
         {
+            if (_activeCommand != null || _wasMouseDownOnUI) return;
+            
             Vector2 mousePosition = inputReader.MousePosition;
             Bounds bound = ResizeSelectionBox(mousePosition);
-                    
+
             foreach (AbstractUnit unit in _aliveUnits)
             {
-                if (unit.gameObject.activeInHierarchy == false) continue;
+                if(unit.gameObject.activeInHierarchy == false) continue;
 
                 Vector2 unitScreenPosition = Camera.main.WorldToScreenPoint(unit.transform.position);
                 if (bound.Contains(unitScreenPosition))
@@ -123,8 +144,9 @@ namespace Code.Players
         
         private void HandleDragEnd()
         {
-            if(Keyboard.current.leftShiftKey.isPressed == false)
+            if(!_wasMouseDownOnUI && _activeCommand == null && Keyboard.current.shiftKey.isPressed == false)
                 DeselectAllUnits();
+            
             HandleMouseLeftButton();
             foreach (AbstractUnit unit in _addedUnits)
             {
@@ -137,15 +159,95 @@ namespace Code.Players
         {
             foreach (ISelectable selectable in _selectedUnits.ToArray())
             {
-                selectable.Deselect();
+                selectable.DeSelect();
             }
         }
+
+        private void HandleMouseLeftButton()
+        {
+            if (_wasMouseDownOnUI) return;
+            
+            RaycastHit hit;
+            
+            if (_activeCommand == null
+                && inputReader.GetMousePosition(out hit, selectableUnitLayer)
+                && hit.collider.TryGetComponent(out ISelectable selectable)
+                && _addedUnits.Count == 0) //드래그 마지막에 건물같은게 추가되지 않도록
+            {
+                selectable.Select();
+            }else if (_activeCommand != null
+                      && inputReader.GetMousePosition(out hit, floorLayer | selectableUnitLayer))
+            {
+                ActivateCommand(hit);
+            }
+        }
+
+        private void HandleMouseRightButton(bool isPressed)
+        {
+            if (_selectedUnits.Count == 0) return;
+
+            if (!isPressed 
+                && inputReader.GetMousePosition(out RaycastHit hit, floorLayer | selectableUnitLayer))
+            {
+                List<AbstractUnit> selectedUnits = _selectedUnits.OfType<AbstractUnit>().ToList();
+
+                for (int i = 0; i < selectedUnits.Count; i++)
+                {
+                    CommandContext context = new CommandContext(selectedUnits[i], hit, i, MouseButton.Right);
+
+                    foreach (BaseCommandSO command in selectedUnits[i].AvailableCommands)
+                    {
+                        if (command.CanHandle(context))
+                        {
+                            command.Handle(context);
+                            break; //첫번째로 가용한 명령을 수행한다.
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        private void HandleUnitSelect(UnitSelectEvent evt)
+            => _selectedUnits.Add(evt.Unit);
+        private void HandleUnitDeselect(UnitDeselectEvent evt)
+            => _selectedUnits.Remove(evt.Unit);
+        private void HandleUnitSpawn(UnitSpawnEvent evt)
+            => _aliveUnits.Add(evt.Unit);
+        private void HandleUnitDeath(UnitDeathEvent evt)
+            => _aliveUnits.Remove(evt.Unit);
+        
+        
+        private void HandleCommandSelect(CommandSelectEvent evt)
+        {
+            _activeCommand = evt.Command;
+            if (_activeCommand.RequireClickToActivate == false)
+                ActivateCommand(new RaycastHit());
+        }
+
+        private void ActivateCommand(RaycastHit hit)
+        {
+            List<AbstractCommandable> abstractUnits = _selectedUnits.OfType<AbstractCommandable>().ToList();
+
+            for (int i = 0; i < abstractUnits.Count; i++)
+            {
+                CommandContext context = new CommandContext(abstractUnits[i], hit, i);
+                if (_activeCommand.CanHandle(context))
+                {
+                    _activeCommand.Handle(context);
+                }
+            }
+
+            _activeCommand = null;
+        }
+
+        #region Utility
 
         private Vector2 GetMouseMoveAmount()
         {
             Vector2 moveAmount = Vector2.zero;
-            
-            if(cameraConfig.EnableEdgePan == false) return moveAmount;
+
+            if (cameraConfig.EnableEdgePan == false) return moveAmount;
 
             Vector2 mousePosition = inputReader.MousePosition;
             Vector2 screenSize = new Vector2(Screen.width, Screen.height);
@@ -162,75 +264,20 @@ namespace Code.Players
             {
                 moveAmount.y += cameraConfig.MousePanSpeed;
             }
+
             return moveAmount;
-        }
-        
-        private void HandleMouseLeftButton()
-        {
-            if (inputReader.GetMousePosition(out RaycastHit hit, selectableUnitLayer)
-                && hit.collider.TryGetComponent(out ISelectable selectable)
-                && _addedUnits.Count == 0)
-            {
-                selectable.Select();
-            }
-        }
-        
-        private void HandleMouseRightButton(bool isPressed)
-        {
-            if(_selectedUnits.Count == 0) return;
-            
-            if (!isPressed && inputReader.GetMousePosition(out RaycastHit hit, floorLayer | selectableUnitLayer))
-            {
-                List<AbstractUnit> unitToMove = _selectedUnits.OfType<AbstractUnit>().ToList();
-
-                int unitOnOrbit = 0;
-                int maxUnitsOnOrbit = 1;
-                float circleRadius = 0; // 궤도의 크기
-                float radialOffset = 0; // 링을 돌면서 떨여져있는 정도
-
-                foreach (AbstractUnit unit in unitToMove)
-                {
-                    Vector3 targetPosition = new Vector3(
-                        hit.point.x + circleRadius * Mathf.Cos(radialOffset * unitOnOrbit),
-                        hit.point.y,
-                        hit.point.z + circleRadius * Mathf.Sin(radialOffset * unitOnOrbit));
-                    
-                    unit.MoveTo(targetPosition);
-                    
-                    unitOnOrbit++; // 이 궤도상에 잇는 유닛 수를 하나 증가
-                    if (unitOnOrbit >= maxUnitsOnOrbit)
-                    {
-                        unitOnOrbit = 0;
-                        circleRadius += unit.AgentRadius * 2.5f;
-                        maxUnitsOnOrbit = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
-                        radialOffset = 2 * Mathf.PI / maxUnitsOnOrbit;
-                    }
-                }
-                
-                // foreach (ISelectable selectable in _selectedUnits)
-                // {
-                //     if (selectable is IMoveable moveable)
-                //         moveable.MoveTo(hit.point);
-                // }
-            }
         }
         
         private Bounds ResizeSelectionBox(Vector2 mousePosition)
         {
-            Vector2 delta = mousePosition - _startingMousePosition;
+            Vector2 delta = mousePosition - _startingMousePosition; //움직인 양.
             selectionBox.anchoredPosition = _startingMousePosition + delta * 0.5f;
             selectionBox.sizeDelta = new Vector2(Mathf.Abs(delta.x), Mathf.Abs(delta.y));
-            
+
             return new Bounds(selectionBox.anchoredPosition, selectionBox.sizeDelta);
         }
 
-        private void HandleUnitSelect(UnitSelectEvent evt)
-            => _selectedUnits.Add(evt.Unit);
-        private void HandleUnitDeselect(UnitDeselectEvent evt)
-            => _selectedUnits.Remove(evt.Unit);
-        private void HandleUnitSpawn(UnitSpawnEvent evt)
-            => _aliveUnits.Add(evt.Unit);
-        private void HandleUnitDeath(UnitDeathEvent evt)
-            => _aliveUnits.Remove(evt.Unit);
+        #endregion
+
     }
 }

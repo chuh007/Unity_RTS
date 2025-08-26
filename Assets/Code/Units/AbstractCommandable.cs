@@ -1,4 +1,5 @@
-﻿using Code.CoreSystem;
+﻿using Code.Commands;
+using Code.CoreSystem;
 using Code.GameEvents;
 using Code.Units.Data;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Code.Units
         [field: SerializeField] public int CurrentHealth { get; private set; }
         [field: SerializeField] public int MaxHealth { get; private set; }
         [field: SerializeField] public UnitSO UnitSo { get; private set; }
-        
+        [field: SerializeField] public BaseCommandSO[] AvailableCommands { get; private set; }
         public bool IsSelected { get; private set; }
 
         protected virtual void Awake()
@@ -36,7 +37,7 @@ namespace Code.Units
             Bus<UnitSelectEvent>.Raise(new UnitSelectEvent(this));
         }
 
-        public void Deselect()
+        public void DeSelect()
         {
             IsSelected = false;
             decalProjector?.SetActiveDecal(false);

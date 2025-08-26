@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 284893727276122309}
   - component: {fileID: 3518623722729679843}
   - component: {fileID: 102734285654857033}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeadQuarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,6 +89,9 @@ MonoBehaviour:
   <CurrentHealth>k__BackingField: 0
   <MaxHealth>k__BackingField: 0
   <UnitSo>k__BackingField: {fileID: 11400000, guid: 0511ac570b7fe5f488d66770b48bfcfc, type: 2}
+  <AvailableCommands>k__BackingField: []
+  <CurrentQueueStartTime>k__BackingField: 0
+  <SOBeingBuilt>k__BackingField: {fileID: 0}
 --- !u!1001 &3693276890774350976
 PrefabInstance:
   m_ObjectHideFlags: 0
