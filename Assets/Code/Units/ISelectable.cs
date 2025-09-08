@@ -1,4 +1,4 @@
-﻿namespace Code.Units
+namespace Code.Units
 {
     public interface ISelectable
     {

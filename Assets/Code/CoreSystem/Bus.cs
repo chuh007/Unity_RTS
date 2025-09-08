@@ -1,7 +1,8 @@
-﻿namespace Code.CoreSystem
+namespace Code.CoreSystem
 {
     public static class Bus<T> where T : IEvent
     {
+        //arguments
         public delegate void Event(T evt);
 
         public static Event OnEvent;

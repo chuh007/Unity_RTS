@@ -104,7 +104,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Aim"",
                     ""type"": ""Value"",
-                    ""id"": ""331cbd91-79d0-41d3-9e24-38bf9f9f9572"",
+                    ""id"": ""6c7e4ca6-b969-4f51-b9e7-93fce8b5fdd0"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -113,7 +113,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""LeftButton"",
                     ""type"": ""Button"",
-                    ""id"": ""612fdd6f-4b8d-4aee-817e-82cf4ef4e453"",
+                    ""id"": ""42e9b39c-32bd-439b-97b2-52585144bcbf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -122,7 +122,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""RightButton"",
                     ""type"": ""Button"",
-                    ""id"": ""acf1ec52-9eee-4665-948e-8858d2f7e601"",
+                    ""id"": ""c02fe143-9288-4973-b675-b17ddb3146a8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -264,33 +264,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dfda1268-60ac-47c5-a560-74bdca779577"",
+                    ""id"": ""f768cd5e-924d-455b-8df4-d20af52af8fb"",
                     ""path"": ""<Pointer>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""524cddb0-e47f-4ca4-939e-e30bdaa32297"",
+                    ""id"": ""b393f3b9-f551-4779-8bb0-efc3bc705321"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""LeftButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4f76d5f0-69de-4a43-817a-32659bfd4f59"",
+                    ""id"": ""a22a5bc6-c9a5-4a5d-b8ac-2dcc34fb624c"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

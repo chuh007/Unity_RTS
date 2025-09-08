@@ -1,13 +1,12 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Code.CoreSystem
 {
-    [CreateAssetMenu(fileName = "Input reader", menuName = "Input reader", order = 0)]
+    [CreateAssetMenu(fileName = "Input reader", menuName = "Input Reader", order = 5)]
     public class InputReaderSO : ScriptableObject, Controls.IPlayerActions
     {
-        
         private Controls _controls;
         
         public Vector2 MousePosition { get; private set; }
@@ -43,7 +42,7 @@ namespace Code.CoreSystem
 
         public void OnLeftButton(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if(context.performed)
                 OnMouseLeftButton?.Invoke(true);
             else if(context.canceled)
                 OnMouseLeftButton?.Invoke(false);
@@ -51,24 +50,24 @@ namespace Code.CoreSystem
 
         public void OnRightButton(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if(context.performed)
                 OnMouseRightButton?.Invoke(true);
             else if(context.canceled)
                 OnMouseRightButton?.Invoke(false);
         }
-        
+
         public bool GetMousePosition(out RaycastHit hit, LayerMask targetLayer)
         {
             Camera camera = Camera.main;
             hit = default;
-            if(camera == null) return false;
+            if (camera == null) return false;
 
             Ray ray = camera.ScreenPointToRay(MousePosition);
-            if (Physics.Raycast(ray, out hit, camera.farClipPlane,targetLayer))
+            if (Physics.Raycast(ray, out hit, camera.farClipPlane, targetLayer))
             {
                 return true;
             }
-            
+
             return false;
         }
     }

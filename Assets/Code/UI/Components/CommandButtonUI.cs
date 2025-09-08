@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Code.Commands;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 namespace Code.UI.Components
 {
-    public class CommandButtonUI : MonoBehaviour
+    public class CommandButtonUI : MonoBehaviour, IUIElement<BaseCommandSO, UnityAction>
     {
         [SerializeField] private Image icon;
         [SerializeField] private Button button;
-        
+
         private void Awake()
         {
-            Debug.Assert(icon != null && button != null, $"Icon image component is not assigned in {gameObject.name}");
+            Debug.Assert(icon != null && button != null, $"Image or Button component is not assigned in {gameObject.name}");
         }
 
         public void EnableFor(BaseCommandSO command, UnityAction onClick)
@@ -30,7 +30,7 @@ namespace Code.UI.Components
             button.interactable = false;
             button.onClick.RemoveAllListeners();
         }
-        
+
         private void SetIcon(Sprite sprite)
         {
             if (sprite == null)

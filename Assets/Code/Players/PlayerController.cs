@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Commands;
@@ -24,6 +24,7 @@ namespace Code.Players
         [SerializeField] private InputReaderSO inputReader;
         [SerializeField] private LayerMask selectableUnitLayer;
         [SerializeField] private LayerMask floorLayer;
+        [SerializeField] private LayerMask interactableLayer;
         [SerializeField] private RectTransform selectionBox;
 
         [Space]
@@ -176,7 +177,7 @@ namespace Code.Players
             {
                 selectable.Select();
             }else if (_activeCommand != null
-                      && inputReader.GetMousePosition(out hit, floorLayer | selectableUnitLayer))
+                      && inputReader.GetMousePosition(out hit, floorLayer | interactableLayer))
             {
                 ActivateCommand(hit);
             }
@@ -187,7 +188,7 @@ namespace Code.Players
             if (_selectedUnits.Count == 0) return;
 
             if (!isPressed 
-                && inputReader.GetMousePosition(out RaycastHit hit, floorLayer | selectableUnitLayer))
+                && inputReader.GetMousePosition(out RaycastHit hit, floorLayer | interactableLayer))
             {
                 List<AbstractUnit> selectedUnits = _selectedUnits.OfType<AbstractUnit>().ToList();
 

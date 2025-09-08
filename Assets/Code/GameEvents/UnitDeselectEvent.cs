@@ -1,4 +1,4 @@
-﻿using Code.CoreSystem;
+using Code.CoreSystem;
 using Code.Units;
 
 namespace Code.GameEvents

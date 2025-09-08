@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 5aca2e1d193a0bd429f534aece795f87
+  productGUID: d2c1adb830cb6924591be3c0f5324ced
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Unity_RTS_AfterSchool
+  productName: Rts_start
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -838,14 +838,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Unity_RTS_AfterSchool
+  metroPackageName: Rts_start
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Unity_RTS_AfterSchool
+  metroApplicationDescription: Rts_start
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -916,11 +916,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 35c86e2c-054b-4022-9a25-658261384410
+  cloudProjectId: 23324d4f-fcd8-437c-8ab7-ebdba5789714
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Unity_RTS_AfterSchool
-  organizationId: chuh007
+  projectName: Rts_start
+  organizationId: choi-sun-han
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

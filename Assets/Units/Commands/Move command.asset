@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60210cee968b4a23b534ac41fed3e484, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e57a6e66e43438b804e325baf4bf2f8, type: 3}
   m_Name: Move command
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Move

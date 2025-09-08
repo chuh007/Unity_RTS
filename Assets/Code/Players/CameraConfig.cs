@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Code.Players
@@ -8,10 +8,10 @@ namespace Code.Players
     {
         [field: SerializeField] public bool EnableEdgePan { get; private set; } = true;
         [field: SerializeField] public float MousePanSpeed { get; private set; } = 5f;
-        [field: SerializeField] public float EdgePanSize { get; private set; } = 50f; // 픽셀
+        [field: SerializeField] public float EdgePanSize { get; private set; } = 50f; //픽셀
         [field: SerializeField] public float KeyboardPanSpeed { get; private set; } = 5f;
-        
-        [field: SerializeField] public float ZoomSpeed { get; private set; } = 1f; // 아직 안씀
+        //이 밑으로는 아직 구현하지 않는다.
+        [field: SerializeField] public float ZoomSpeed { get; private set; } = 1f;//아직 안씀
         [field: SerializeField] public float RotationSpeed { get; private set; } = 1f;
         [field: SerializeField] public float MinZoomDistance { get; private set; } = 7.5f;
     }
