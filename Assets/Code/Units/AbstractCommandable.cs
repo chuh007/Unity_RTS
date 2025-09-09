@@ -12,16 +12,19 @@ namespace Code.Units
         [SerializeField] protected DecalProjector decalProjector;
         [field: SerializeField] public int CurrentHealth { get; private set; }
         [field: SerializeField] public int MaxHealth { get; private set; }
-        [field: SerializeField] public UnitSO UnitSo { get; private set; } 
+        [field: SerializeField] public AbstractUnitSO UnitSo { get; private set; } 
         [field: SerializeField] public BaseCommandSO[] AvailableCommands { get; private set; }
         
         public bool IsSelected { get; private set; }
+
+        private BaseCommandSO[] _initialCommands;
 
         protected virtual void Awake()
         {
             Debug.Assert(UnitSo != null, $"UnitSo is not assigned in {gameObject.name}");
             Debug.Assert(decalProjector != null, $"Decal projector is not assigned {gameObject.name}");
             decalProjector.SetActiveDecal(false);
+            _initialCommands = AvailableCommands;
         }
 
         protected virtual void Start()
@@ -44,7 +47,25 @@ namespace Code.Units
         {
             IsSelected = false;
             decalProjector.SetActiveDecal(false);
+            SetCommandOverrides(null);
             Bus<UnitDeselectEvent>.Raise(new UnitDeselectEvent(this));
+        }
+
+        public void SetCommandOverrides(BaseCommandSO[] commands)
+        {
+            if (commands == null || commands.Length == 0)
+            {
+                AvailableCommands = _initialCommands;
+            }
+            else
+            {
+                AvailableCommands = commands;
+            }
+
+            if (IsSelected)
+            {
+                Bus<UnitSelectEvent>.Raise(new UnitSelectEvent(this));
+            }
         }
     }
 }

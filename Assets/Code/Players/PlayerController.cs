@@ -42,6 +42,8 @@ namespace Code.Players
         private BaseCommandSO _activeCommand;//현재 선택된 커맨드
         private bool _wasMouseDownOnUI = false;
 
+        private GameObject _ghostInstance;
+        
         private void Awake()
         {
             inputReader.OnMouseRightButton += HandleMouseRightButton;
@@ -69,8 +71,9 @@ namespace Code.Players
             UpdateLeftButtonState();
             HandlePanning();
             HandleDragSelect();
+            HandleGhostInstance();
         }
-
+        
         private void UpdateLeftButtonState()
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -110,7 +113,7 @@ namespace Code.Players
                 case ButtonState.Released: HandleDragEnd(); break;
             }
         }
-
+        
         private void HandleDragStart()
         {
             selectionBox.sizeDelta = Vector2.zero;
@@ -155,7 +158,25 @@ namespace Code.Players
             }
             selectionBox.gameObject.SetActive(false);
         }
+        
+        private void HandleGhostInstance()
+        {
+            if(_ghostInstance == null) return;
+            
+            if (Keyboard.current.escapeKey.wasReleasedThisFrame)
+            {
+                Destroy(_ghostInstance);
+                _ghostInstance = null;
+                _activeCommand = null;
+                return;
+            }
 
+            if (inputReader.GetMousePosition(out RaycastHit hit, floorLayer))
+            {
+                _ghostInstance.transform.position = hit.point;
+            }
+        }
+        
         private void DeselectAllUnits()
         {
             foreach (ISelectable selectable in _selectedUnits.ToArray())
@@ -224,12 +245,25 @@ namespace Code.Players
             _activeCommand = evt.Command;
             if (_activeCommand.RequireClickToActivate == false)
                 ActivateCommand(new RaycastHit());
+            else if (_activeCommand is IHasGhostPrefab buildCommand)
+            {
+                if (buildCommand.GhostPrefab != null)
+                {
+                    _ghostInstance = Instantiate(buildCommand.GhostPrefab);
+                }
+            }
         }
 
         private void ActivateCommand(RaycastHit hit)
         {
+            if (_ghostInstance != null)
+            {
+                Destroy(_ghostInstance);
+                _ghostInstance = null;
+            }
+            
             List<AbstractCommandable> abstractUnits = _selectedUnits.OfType<AbstractCommandable>().ToList();
-
+            
             for (int i = 0; i < abstractUnits.Count; i++)
             {
                 CommandContext context = new CommandContext(abstractUnits[i], hit, i);
@@ -238,7 +272,7 @@ namespace Code.Players
                     _activeCommand.Handle(context);
                 }
             }
-
+            
             _activeCommand = null;
         }
 

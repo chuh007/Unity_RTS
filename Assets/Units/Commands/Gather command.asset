@@ -17,3 +17,4 @@ MonoBehaviour:
   <Slot>k__BackingField: 5
   <IsSingleUnitCommand>k__BackingField: 0
   <RequireClickToActivate>k__BackingField: 1
+  headQuarterSO: {fileID: 11400000, guid: 3b9980ae3a7774d449dea8c42b50c08b, type: 2}

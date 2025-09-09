@@ -80,7 +80,7 @@ namespace Code.Units
             Debug.LogError($"Variable not found : {variable} in unit : {gameObject.name}");
         }
 
-        public bool GetVariableValue<T>(BTVariables variableName, out BlackboardVariable<T> variable)
+        public bool GetVariable<T>(BTVariables variableName, out BlackboardVariable<T> variable)
         {
             if(_variableDict.TryGetValue(variableName, out SerializableGUID guid))
             {

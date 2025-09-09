@@ -17,7 +17,7 @@ namespace Code.Units.BT.Actions
         [SerializeReference] public BlackboardVariable<GameObject> HQ;
 
         [SerializeReference] public BlackboardVariable<float> SearchRadius = new(10);
-        [SerializeReference] public BlackboardVariable<UnitSO> TargetBuildingType;
+        [SerializeReference] public BlackboardVariable<BuildingSO> TargetBuildingType;
 
         private Collider[] _results = new Collider[20]; //최대 20개까지 검사한다.
         

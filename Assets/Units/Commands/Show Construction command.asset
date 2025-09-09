@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23b4c3c5a5a478fb32f8a02fad02bfb, type: 3}
+  m_Name: Show Construction command
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Construction
+  <Icon>k__BackingField: {fileID: 21300000, guid: cb3b31ebae0d94986a769b3d9c7730f0, type: 3}
+  <Slot>k__BackingField: 6
+  <IsSingleUnitCommand>k__BackingField: 1
+  <RequireClickToActivate>k__BackingField: 0
+  <Commands>k__BackingField:
+  - {fileID: 11400000, guid: 5cc1f00d94cc7c7429b4cf82312f3046, type: 2}
+  - {fileID: 11400000, guid: db2bde61bb14cc74da9531d8652666c3, type: 2}
