@@ -34,5 +34,8 @@ namespace Code.Commands
         
         private bool IsHeadQuarter(Collider collider)
             => collider.TryGetComponent(out BaseBuilding building) && building.UnitSo.Equals(headQuarterSO);
+        
+        public override bool IsLocked(CommandContext context) => false;
+
     }
 }

@@ -45,6 +45,8 @@ namespace Code.Commands
                 _maxUnitsOnOrbit = Mathf.FloorToInt(2 * Mathf.PI * _circleRadius / (unit.AgentRadius * 2));
                 _radialOffset = 2 * Mathf.PI / _maxUnitsOnOrbit;
             }
-        }
+        } 
+        
+        public override bool IsLocked(CommandContext context) => false;
     }
 }

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8199c2fe44ad48df9a68eef3010ed2f3, type: 3}
   m_Name: FarmSO
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Farm
   <Health>k__BackingField: 300
   <Prefab>k__BackingField: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
-  <BuildTime>k__BackingField: 5
+  <BuildTime>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: 5341ddc86f90a463589ba5118780f2ad, type: 3}
+  <Cost>k__BackingField: {fileID: 11400000, guid: 4047f299b3eae20449fe5cda4e21c1a5, type: 2}
   <ConstructionDummy>k__BackingField: {fileID: 8959782924805421710, guid: ca889bcc8eaa05c45a367baef4e0ef3c, type: 3}

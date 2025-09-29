@@ -2,12 +2,15 @@
 using Code.CoreSystem;
 using Code.Environments;
 using Code.GameEvents;
+using Code.Units;
 using UnityEngine;
 
 namespace Code.Players
 {
     public class UserSupplies : MonoBehaviour
     {
+        public static UserSupplies Instance { get; private set; }
+        
         [SerializeField] private SupplySO mineralSO;
         [SerializeField] private SupplySO gasSO;
         
@@ -19,6 +22,13 @@ namespace Code.Players
         
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+            
             Minerals = 0;
             Gas = 0;
 
@@ -44,5 +54,8 @@ namespace Code.Players
                 OnSupplyChanged?.Invoke(Gas, gasSO);
             }
         }
+
+        public bool HasEnoughSupplies(SupplyCostSO cost)
+            => Minerals >= cost.Minerals && Gas >= cost.Gas;
     }
 }

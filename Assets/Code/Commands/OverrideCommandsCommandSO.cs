@@ -15,5 +15,7 @@ namespace Code.Commands
         {
             context.Commandable.SetCommandOverrides(Commands);
         }
+        
+        public override bool IsLocked(CommandContext context) => false;
     }
 }

@@ -13072,7 +13072,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b718175492d3df4192b53613f31a43d, type: 2}
   - {fileID: 11400000, guid: eda9d380989626342a557b0b6fcb6792, type: 2}
   - {fileID: 11400000, guid: 0ffbd0944df2a4542bdbe2a772c88194, type: 2}
+  - {fileID: 11400000, guid: 3311f7ec58848e946a07475522dad86e, type: 2}
   backpackObject: {fileID: 1559491774893696931}
+  cancelConstructionCommandSet:
+  - {fileID: 11400000, guid: 5185a1d948bc54d42acb81876229546a, type: 2}
 --- !u!114 &8395974054663211950
 MonoBehaviour:
   m_ObjectHideFlags: 0

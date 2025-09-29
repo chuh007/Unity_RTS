@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1933fd0e118f47a5b00e734ebc8c51d6, type: 3}
+  m_Name: 50 Mineral
+  m_EditorClassIdentifier: 
+  <Minerals>k__BackingField: 50
+  <MineralsSO>k__BackingField: {fileID: 11400000, guid: f09dbd3483c05174988aef42466557fc, type: 2}
+  <Gas>k__BackingField: 0
+  <GasSO>k__BackingField: {fileID: 11400000, guid: d9a84821e750ed649b63478a8068ebf4, type: 2}

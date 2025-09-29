@@ -2,12 +2,14 @@ using System.Collections;
 using Code.UI.Components;
 using Code.Units;
 using Code.Units.Data;
+using TMPro;
 using UnityEngine;
 
 namespace Code.UI.Containers
 {
     public class GenerateUnitUI : MonoBehaviour, IUIElement<BaseBuilding>
     {
+        [SerializeField] private TextMeshProUGUI buildingNameText;
         [SerializeField] private ProgressBarUI progressBar;
         [SerializeField] private BuildingQueueButtonUI[] queueButtons;
 
@@ -23,7 +25,7 @@ namespace Code.UI.Containers
             gameObject.SetActive(true);
             _currentBuilding = item;
             _currentBuilding.OnQueueUpdated += HandleQueueUpdate;
-
+            buildingNameText.SetText(_currentBuilding.BuildingSo.Name);
             SetupQueueButtons();
             _generateCoroutine = StartCoroutine(UpdateUnitProgress());
         }

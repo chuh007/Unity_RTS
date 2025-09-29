@@ -10,15 +10,18 @@ namespace Code.Units
     public abstract class AbstractCommandable : MonoBehaviour, ISelectable
     {
         [SerializeField] protected DecalProjector decalProjector;
-        [field: SerializeField] public int CurrentHealth { get; private set; }
-        [field: SerializeField] public int MaxHealth { get; private set; }
+        [field: SerializeField] public int CurrentHealth { get; protected set; }
+        [field: SerializeField] public int MaxHealth { get; protected set; }
         [field: SerializeField] public AbstractUnitSO UnitSo { get; private set; } 
         [field: SerializeField] public BaseCommandSO[] AvailableCommands { get; private set; }
         
-        public bool IsSelected { get; private set; }
-
+        public bool IsSelected { get; protected set; }
+        
         private BaseCommandSO[] _initialCommands;
 
+        public delegate void HealthUpdatedEvent(AbstractCommandable commandable, int lastHealth, int newHealth);
+        public event HealthUpdatedEvent OnHealthUpdated;
+        
         protected virtual void Awake()
         {
             Debug.Assert(UnitSo != null, $"UnitSo is not assigned in {gameObject.name}");
@@ -30,6 +33,7 @@ namespace Code.Units
         protected virtual void Start()
         {
             CurrentHealth = MaxHealth = UnitSo.Health;
+            OnHealthUpdated?.Invoke(this, 0, CurrentHealth);
         }
 
         protected virtual void OnDestroy()
@@ -43,7 +47,7 @@ namespace Code.Units
             Bus<UnitSelectEvent>.Raise(new UnitSelectEvent(this));
         }
 
-        public void DeSelect()
+        public virtual void DeSelect()
         {
             IsSelected = false;
             decalProjector.SetActiveDecal(false);
@@ -66,6 +70,13 @@ namespace Code.Units
             {
                 Bus<UnitSelectEvent>.Raise(new UnitSelectEvent(this));
             }
+        }
+
+        public void Heal(int amount)
+        {
+            int lastHealth = CurrentHealth;
+            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
+            OnHealthUpdated?.Invoke(this, lastHealth, CurrentHealth);
         }
     }
 }

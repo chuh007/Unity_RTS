@@ -21,6 +21,7 @@ namespace Code.Units.BT.Actions
 
         private float _startBuildTime;
         private float _targetHealth;
+        private Vector3 _finalPosition;
         
         protected override Status OnStart()
         {
@@ -28,8 +29,10 @@ namespace Code.Units.BT.Actions
                 || Dummy.Value == null)
                 return Status.Failure;
             
-            Dummy.Value.UpdateConstructionProgress(0);
-            _startBuildTime = Time.time;
+            // Dummy.Value.UpdateConstructionProgress(0);
+            _startBuildTime = Dummy.Value.ProgressData.StartTime;
+            _finalPosition = TargetLocation.Value;
+            
             return Status.Running;
         }
 
@@ -38,15 +41,29 @@ namespace Code.Units.BT.Actions
             float normalizeTime = (Time.time - _startBuildTime) / BuildingSO.Value.BuildTime;
             Dummy.Value.UpdateConstructionProgress(normalizeTime);
 
+            _targetHealth += Time.deltaTime * (BuildingSO.Value.Health / BuildingSO.Value.BuildTime);
+            if (_targetHealth >= 1)
+            {
+                int healAmount = Mathf.FloorToInt(_targetHealth);
+                Dummy.Value.Heal(healAmount);
+                _targetHealth -= healAmount;
+            }
+            
             if (normalizeTime >= 1)
             {
-                GameObject building =
-                    Object.Instantiate(BuildingSO.Value.Prefab, TargetLocation.Value, Quaternion.identity);
+                GameObject newBuilding =
+                    Object.Instantiate(BuildingSO.Value.Prefab, _finalPosition, Quaternion.identity);
+                
+                BaseBuilding building = newBuilding.GetComponent<BaseBuilding>();
+                if(Dummy.Value.IsSelected)
+                    building.Select();
+                
+                Dummy.Value.ConstructionComplete();
                 Object.Destroy(Dummy.Value.gameObject);
                 Dummy.Value = null;
-                return Status.Success;
             }
-            return Status.Running;
+
+            return normalizeTime >= 1 ? Status.Success : Status.Running;
         }
 
         protected override void OnEnd()

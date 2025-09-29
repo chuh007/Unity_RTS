@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.CoreSystem;
+using Code.Environments;
 using Code.GameEvents;
 using Code.Players;
 using Code.UI.Containers;
 using Code.Units;
+using Code.Units.Buildings;
+using Code.Units.Data;
 using UnityEngine;
 
 namespace Code.UI
@@ -13,28 +16,49 @@ namespace Code.UI
     public class RuntimeUI : MonoBehaviour
     {
         [SerializeField] private CommandUI commandUI;
-        [SerializeField] private GenerateUnitUI generateUnitUI;
+        // [SerializeField] private GenerateUnitUI generateUnitUI;
+        [SerializeField] private BuildingSelectedUI buildingSelectedUI;
+        
         [SerializeField] private SupplyUI supplyUI;
-        [SerializeField] private UserSupplies userSupplies; // TODO 의존주입
-
+        
+        [SerializeField] private UnitIconUI unitIconUI;
+        [SerializeField] private SingleUnitSelectUI singleUnitSelectUI;
+        
         private HashSet<AbstractCommandable> _selectedUnits = new HashSet<AbstractCommandable>(12);
 
         private void Awake()
         {
             Bus<UnitSelectEvent>.OnEvent += HandleUnitSelect;
             Bus<UnitDeselectEvent>.OnEvent += HandleUnitDeselect;
+            Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
+            // Bus<SupplyEvent>.OnEvent += HandleSupplyChange;
         }
 
         private void Start()
         {
             DisableAllUI();
-            supplyUI.EnableFor(userSupplies);
+            supplyUI.EnableFor(UserSupplies.Instance);
+            UserSupplies.Instance.OnSupplyChanged += HandleSupplyChange;
         }
 
         private void OnDestroy()
         {
             Bus<UnitSelectEvent>.OnEvent -= HandleUnitSelect;
             Bus<UnitDeselectEvent>.OnEvent -= HandleUnitDeselect;
+            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
+            // Bus<SupplyEvent>.OnEvent -= HandleSupplyChange;
+            UserSupplies.Instance.OnSupplyChanged -= HandleSupplyChange;
+        }
+
+        private void HandleSupplyChange(int amount, SupplySO supplyType)
+        {
+            commandUI.EnableFor(_selectedUnits);
+        }
+
+        private void HandleUnitDeath(UnitDeathEvent evt)
+        {
+            _selectedUnits.Remove(evt.Unit);
+            RefreshUI();
         }
 
         private void HandleUnitSelect(UnitSelectEvent evt)
@@ -65,10 +89,14 @@ namespace Code.UI
                 if (_selectedUnits.Count == 1)
                 {
                     AbstractCommandable firstUnit = _selectedUnits.First();
-
-                    if (firstUnit is BaseBuilding building)
+                    unitIconUI.EnableFor(firstUnit);
+                    if (firstUnit is IBuilding building)
                     {
-                        generateUnitUI.EnableFor(building);
+                        buildingSelectedUI.EnableFor(building);
+                    }
+                    else
+                    {
+                        singleUnitSelectUI.EnableFor(firstUnit);
                     }
                 }
             }
@@ -77,7 +105,9 @@ namespace Code.UI
         private void DisableAllUI()
         {
             commandUI.Disable();
-            generateUnitUI.Disable();
+            buildingSelectedUI.Disable();
+            unitIconUI.Disable();
+            singleUnitSelectUI.Disable();
         }
     }
 }

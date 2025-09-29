@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Code.CoreSystem;
+using Code.GameEvents;
+using Code.Units.Buildings;
 using Code.Units.Data;
 using UnityEngine;
 
 namespace Code.Units
 {
-    public class BaseBuilding : AbstractCommandable
+    public class BaseBuilding : AbstractCommandable, IBuilding
     {
         public const int MAX_QUEUE_SIZE = 5;
         
@@ -16,16 +19,42 @@ namespace Code.Units
         
         [field: SerializeField] public float CurrentQueueStartTime { get; private set; }
         [field: SerializeField] public UnitSO SOBeingBuilt { get; private set; } //현재 빌드중인 유닛정보
-
+        
         //UI를 위해 발행하는 이벤트 
         public delegate void QueueUpdatedEvent(UnitSO[] unitsInQueue);
         public event QueueUpdatedEvent OnQueueUpdated;
         
+        public BuildingSO BuildingSo { get; private set; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            BuildingSo = UnitSo as BuildingSO;
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            Bus<BuildingSpawnEvent>.Raise(new BuildingSpawnEvent(this));
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Bus<BuildingDeathEvent>.Raise(new BuildingDeathEvent(this));
+            
+        }
+
         public void BuildUnit(UnitSO unitToBuild)
         {
-            //자원 소모 관련 로직이 차후에 여기 들어와야 하고
-            
-            //빌딩 큐 검사 관련 로직이 여기 들어가야 하고
+            if (_buildingQueue.Count >= MAX_QUEUE_SIZE)
+            {
+                Debug.LogError("Building queue is full, can not add more units");
+                return;
+            }
+
+            Bus<SupplyEvent>.Raise(new SupplyEvent(-unitToBuild.Cost.Minerals, unitToBuild.Cost.MineralsSO));
+            Bus<SupplyEvent>.Raise(new SupplyEvent(-unitToBuild.Cost.Gas, unitToBuild.Cost.GasSO));
             
             _buildingQueue.Add(unitToBuild);
             if (_buildingQueue.Count == 1)
@@ -63,7 +92,9 @@ namespace Code.Units
 
             UnitSO unitToCancel = _buildingQueue[idx];
             
-            //여기에 나중에 자원 반환 로직이 들어간다.
+            Bus<SupplyEvent>.Raise(new SupplyEvent(unitToCancel.Cost.Minerals, unitToCancel.Cost.MineralsSO));
+            Bus<SupplyEvent>.Raise(new SupplyEvent(unitToCancel.Cost.Gas, unitToCancel.Cost.GasSO));
+            
             _buildingQueue.RemoveAt(idx);
             if (idx == 0) //지금 만들어지는게 취소된거라면.
             {

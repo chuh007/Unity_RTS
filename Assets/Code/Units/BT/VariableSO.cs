@@ -13,7 +13,8 @@ namespace Code.Units.BT
         HeadQuarter,
         SupplyEventChannel,
         ConstructionDummy,
-        ConstructBuildingSO
+        ConstructBuildingSO,
+        ConstructionEventChannel
     }
 
     [CreateAssetMenu(fileName = "Variable data", menuName = "Units/BT/Variable", order = 10)]

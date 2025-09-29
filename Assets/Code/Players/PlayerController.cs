@@ -5,6 +5,7 @@ using Code.Commands;
 using Code.CoreSystem;
 using Code.GameEvents;
 using Code.Units;
+using Code.Units.Buildings;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -42,7 +43,7 @@ namespace Code.Players
         private BaseCommandSO _activeCommand;//현재 선택된 커맨드
         private bool _wasMouseDownOnUI = false;
 
-        private GameObject _ghostInstance;
+        private GhostPlacement _ghostInstance;
         
         private void Awake()
         {
@@ -165,7 +166,7 @@ namespace Code.Players
             
             if (Keyboard.current.escapeKey.wasReleasedThisFrame)
             {
-                Destroy(_ghostInstance);
+                Destroy(_ghostInstance.gameObject);
                 _ghostInstance = null;
                 _activeCommand = null;
                 return;
@@ -174,6 +175,12 @@ namespace Code.Players
             if (inputReader.GetMousePosition(out RaycastHit hit, floorLayer))
             {
                 _ghostInstance.transform.position = hit.point;
+
+                if (_activeCommand is IConstructionCommand command)
+                {
+                    bool isPassRestiction = command.AllRestrictionPass(hit.point);
+                    _ghostInstance.SetPassRestriction(isPassRestiction);
+                }
             }
         }
         
@@ -217,11 +224,12 @@ namespace Code.Players
                 {
                     CommandContext context = new CommandContext(selectedUnits[i], hit, i, MouseButton.Right);
 
-                    foreach (BaseCommandSO command in selectedUnits[i].AvailableCommands)
+                    foreach (BaseCommandSO command in GetAvailableCommands(selectedUnits[i]))
                     {
                         if (command.CanHandle(context))
                         {
                             command.Handle(context);
+                            if (command.IsSingleUnitCommand) return;
                             break; //첫번째로 가용한 명령을 수행한다.
                         }
                     }
@@ -236,21 +244,38 @@ namespace Code.Players
             => _selectedUnits.Remove(evt.Unit);
         private void HandleUnitSpawn(UnitSpawnEvent evt)
             => _aliveUnits.Add(evt.Unit);
+
         private void HandleUnitDeath(UnitDeathEvent evt)
-            => _aliveUnits.Remove(evt.Unit);
+        {
+            _aliveUnits.Remove(evt.Unit);
+            _selectedUnits.Remove(evt.Unit);
+        }
         
         
         private void HandleCommandSelect(CommandSelectEvent evt)
         {
+            DestroyGhostIfExist();
             _activeCommand = evt.Command;
             if (_activeCommand.RequireClickToActivate == false)
                 ActivateCommand(new RaycastHit());
-            else if (_activeCommand is IHasGhostPrefab buildCommand)
+            else if (_activeCommand is IConstructionCommand buildCommand)
             {
                 if (buildCommand.GhostPrefab != null)
                 {
-                    _ghostInstance = Instantiate(buildCommand.GhostPrefab);
+                    GameObject ghost = Instantiate(buildCommand.GhostPrefab);
+                    _ghostInstance = ghost.GetComponent<GhostPlacement>();
+                    Debug.Assert(_ghostInstance != null,
+                        $"GhostPlacement script is missing on {buildCommand.GhostPrefab.name}");
                 }
+            }
+        }
+
+        private void DestroyGhostIfExist()
+        {
+            if (_ghostInstance != null)
+            {
+                Destroy(_ghostInstance.gameObject);
+                _ghostInstance = null;
             }
         }
 
@@ -258,7 +283,7 @@ namespace Code.Players
         {
             if (_ghostInstance != null)
             {
-                Destroy(_ghostInstance);
+                Destroy(_ghostInstance.gameObject);
                 _ghostInstance = null;
             }
             
@@ -267,9 +292,12 @@ namespace Code.Players
             for (int i = 0; i < abstractUnits.Count; i++)
             {
                 CommandContext context = new CommandContext(abstractUnits[i], hit, i);
+
                 if (_activeCommand.CanHandle(context))
                 {
                     _activeCommand.Handle(context);
+                    if (_activeCommand.IsSingleUnitCommand)
+                        break;
                 }
             }
             
@@ -312,6 +340,24 @@ namespace Code.Players
             return new Bounds(selectionBox.anchoredPosition, selectionBox.sizeDelta);
         }
 
+        private List<BaseCommandSO> GetAvailableCommands(AbstractUnit targetUnit)
+        {
+            OverrideCommandsCommandSO[] overrideCommands
+                = targetUnit.AvailableCommands.OfType<OverrideCommandsCommandSO>().ToArray();
+            
+            List<BaseCommandSO> allAvaliableCommands = new List<BaseCommandSO>();
+            foreach (var overrideCommand in overrideCommands)
+            {
+                allAvaliableCommands.AddRange(
+                    overrideCommand.Commands.Where(command => command is not OverrideCommandsCommandSO));
+            }
+
+            allAvaliableCommands.AddRange(
+                targetUnit.AvailableCommands.Where(command => command is not OverrideCommandsCommandSO));
+            
+            return allAvaliableCommands;
+        }
+        
         #endregion
 
     }

@@ -63,5 +63,35 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6868932791498563705, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2665306307313520334}
   m_SourcePrefab: {fileID: 100100000, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
+--- !u!1 &6300553977794581879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
+  m_PrefabInstance: {fileID: 7982212162017835837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2665306307313520334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300553977794581879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f10c553a4e640abb27dde80a0917f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorTintColor: {r: 1, g: 0, b: 0, a: 1}
+  errorFresnelColor: {r: 4, g: 1.7, b: 0, a: 1}
+  availableTintColor: {r: 0.2, g: 0.65, b: 1, a: 1}
+  availableFresnelColor: {r: 0.8, g: 1.5, b: 2.2, a: 1}
+  ghostRenderer: {fileID: 7391028566502577565}
+--- !u!23 &7391028566502577565 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 600305831208464032, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
+  m_PrefabInstance: {fileID: 7982212162017835837}
+  m_PrefabAsset: {fileID: 0}

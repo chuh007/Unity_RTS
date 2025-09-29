@@ -16,5 +16,7 @@ namespace Code.Commands
             AbstractUnit unit = context.Commandable as AbstractUnit;
             unit.Stop();
         }
+        
+        public override bool IsLocked(CommandContext context) => false;
     }
 }

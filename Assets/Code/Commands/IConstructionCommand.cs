@@ -2,8 +2,9 @@
 
 namespace Code.Commands
 {
-    public interface IHasGhostPrefab
+    public interface IConstructionCommand
     {
         GameObject GhostPrefab { get; }
+        bool AllRestrictionPass(Vector3 point);
     }
 }
