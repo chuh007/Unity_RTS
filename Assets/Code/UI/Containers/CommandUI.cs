@@ -14,7 +14,7 @@ namespace Code.UI.Containers
     public class CommandUI : MonoBehaviour, IUIElement<HashSet<AbstractCommandable>>
     {
         [SerializeField] private CommandButtonUI[] commandButtons;
-        
+        [SerializeField] private Owner uiOwner = Owner.Player;
         public void EnableFor(HashSet<AbstractCommandable> selectedUnits)
         {
             RefreshButtons(selectedUnits);
@@ -56,7 +56,7 @@ namespace Code.UI.Containers
         }
 
         private UnityAction HandleClick(BaseCommandSO commandForSlot)
-            => () => Bus<CommandSelectEvent>.Raise(new CommandSelectEvent(commandForSlot));
+            => () => Bus<CommandSelectEvent>.Raise(uiOwner, new CommandSelectEvent(commandForSlot));
 
         
     }

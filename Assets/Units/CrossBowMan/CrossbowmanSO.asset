@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a42b14d785f434ea3679587d2217a41, type: 3}
+  m_Name: CrossbowmanSO
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Crossbowman
+  <BuildTime>k__BackingField: 5
+  <Icon>k__BackingField: {fileID: 21300000, guid: 4f1846f5e9ef246f59a339bc877947f1, type: 3}
+  <Cost>k__BackingField: {fileID: 11400000, guid: 39d1393b2126f7e4884cdb47e2d2c162, type: 2}
+  <TechTree>k__BackingField: {fileID: 11400000, guid: e01dbb866e663d34cab9937164d4c538, type: 2}
+  <UnlockRequirements>k__BackingField:
+  - {fileID: 11400000, guid: fe2ea5f03ef90c44cb7b3ae8f06b24f4, type: 2}
+  <Health>k__BackingField: 80
+  <Prefab>k__BackingField: {fileID: 7667350476743068525, guid: 40562a78c884e354393afc587ec69ed5, type: 3}
+  <AttackConfig>k__BackingField: {fileID: 11400000, guid: 532ae2031dc6d694893fcee17cb80c9b, type: 2}

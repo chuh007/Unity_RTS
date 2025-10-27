@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406fc4a7e13b467486326d43a5e413a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3762fc04ec164f958fb4f8a8bfbff8d6, type: 3}
   m_Name: Construct farm command
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Farm
@@ -18,6 +18,6 @@ MonoBehaviour:
   <IsSingleUnitCommand>k__BackingField: 1
   <RequireClickToActivate>k__BackingField: 1
   <BuildingData>k__BackingField: {fileID: 11400000, guid: 31b5a54abad52a24dadef6efc4fb9515, type: 2}
-  <GhostPrefab>k__BackingField: {fileID: 6300553977794581879, guid: 18d4893b2484f24459caa032bc4c07ea, type: 3}
+  <GhostPrefab>k__BackingField: {fileID: 3369994507221823223, guid: 736cdbad36698ad4a878e544c9abd6e1, type: 3}
   <Restrictions>k__BackingField:
-  - {fileID: 11400000, guid: 75dcc346e1f27c44c97245ab3bbf33e1, type: 2}
+  - {fileID: 11400000, guid: 49445eedae942c44e880c0d66a27d982, type: 2}

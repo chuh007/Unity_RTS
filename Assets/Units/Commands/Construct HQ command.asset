@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 406fc4a7e13b467486326d43a5e413a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3762fc04ec164f958fb4f8a8bfbff8d6, type: 3}
   m_Name: Construct HQ command
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: HeadQuater
+  <Name>k__BackingField: HeadQuarter
   <Icon>k__BackingField: {fileID: 21300000, guid: fa5715cd12a534054bff4431772783a8, type: 3}
   <Slot>k__BackingField: 0
   <IsSingleUnitCommand>k__BackingField: 1
   <RequireClickToActivate>k__BackingField: 1
   <BuildingData>k__BackingField: {fileID: 11400000, guid: 3b9980ae3a7774d449dea8c42b50c08b, type: 2}
-  <GhostPrefab>k__BackingField: {fileID: 570142727744587518, guid: 4d10fabdc805a68499711e7ab1ad967a, type: 3}
+  <GhostPrefab>k__BackingField: {fileID: 589674755908277201, guid: a20a48a5b7500674981c865ff7ac2012, type: 3}
   <Restrictions>k__BackingField:
-  - {fileID: 11400000, guid: 75dcc346e1f27c44c97245ab3bbf33e1, type: 2}
-  - {fileID: 11400000, guid: 6bd4204e877b2e14e8429071b8d89d36, type: 2}
+  - {fileID: 11400000, guid: 49445eedae942c44e880c0d66a27d982, type: 2}
+  - {fileID: 11400000, guid: 378d0a712e9e45748ac11a129cf2767a, type: 2}

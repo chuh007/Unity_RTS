@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a42b14d785f434ea3679587d2217a41, type: 3}
+  m_Name: SwordmanSO
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Swordman
+  <BuildTime>k__BackingField: 5
+  <Icon>k__BackingField: {fileID: 21300000, guid: 4d7066b4010084837b845186c6da4388, type: 3}
+  <Cost>k__BackingField: {fileID: 11400000, guid: 39d1393b2126f7e4884cdb47e2d2c162, type: 2}
+  <TechTree>k__BackingField: {fileID: 11400000, guid: e01dbb866e663d34cab9937164d4c538, type: 2}
+  <UnlockRequirements>k__BackingField:
+  - {fileID: 11400000, guid: c9b80772b0f20124a8ede3b892f868fd, type: 2}
+  <Health>k__BackingField: 120
+  <Prefab>k__BackingField: {fileID: 4980507524402339302, guid: 328dc15aed666984da0f459ab2e732d7, type: 3}
+  <Upgrades>k__BackingField: []
+  <AttackConfig>k__BackingField: {fileID: 11400000, guid: 344b9d2d8ffe86b4587abb679142f6a4, type: 2}

@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3452624525178395315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316782420699811544, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359038391619311174, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: m_Name
+      value: Archery Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361376361340824394, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3dcc31d9e5412e149841278154c58138, type: 2}
+    m_RemovedComponents:
+    - {fileID: 1184802475287070652, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+    - {fileID: 9135589118899066025, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+    - {fileID: 3427446388241616573, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4359038391619311174, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -647413716571917939}
+  m_SourcePrefab: {fileID: 100100000, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+--- !u!1 &1410829429110541557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4359038391619311174, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+  m_PrefabInstance: {fileID: 3452624525178395315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-647413716571917939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410829429110541557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86706d1ec39e4b43b14cdc05d942aaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorTintColor: {r: 1, g: 0, b: 0, a: 1}
+  errorFresnelColor: {r: 4, g: 1.7, b: 0, a: 1}
+  availableTintColor: {r: 0.2, g: 0.65, b: 1, a: 1}
+  availableFresnelColor: {r: 0.8, g: 1.5, b: 2.2, a: 1}
+  ghostRenderer: {fileID: 6621342819243930105}
+--- !u!23 &6621342819243930105 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8361376361340824394, guid: 0d926fd9da72e9d4db27686f3ee5abe8, type: 3}
+  m_PrefabInstance: {fileID: 3452624525178395315}
+  m_PrefabAsset: {fileID: 0}

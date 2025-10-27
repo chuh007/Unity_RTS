@@ -13,14 +13,14 @@ using Action = Unity.Behavior.Action;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Move to available supply", story: "[Unit] move to [GatherableSupply] or neebly not busy", category: "Action/Navigation", id: "fb9dfeb6049f7f617883274ea8ec275b")]
+    [NodeDescription(name: "Move to available supply", story: "[Unit] move to [GatherableSupply] or nearby not busy", category: "Action/Navigation", id: "af61281af5a14c40caa5b8f36960e231")]
     public partial class MoveToAvailableSupplyAction : Action
     {
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
         [SerializeReference] public BlackboardVariable<GatherableSupply> GatherableSupply;
         [SerializeReference] public BlackboardVariable<float> SearchRadius = new(7f);
         [SerializeReference] public BlackboardVariable<ParameterSO> SpeedParameter;
-        
+
         private NavMeshAgent _agent;
         private LayerMask _supplyLayerMask;
         private SupplySO _supplySO;
@@ -36,8 +36,8 @@ namespace Code.Units.BT.Actions
                 return Status.Failure;
             }
 
-            _collider = GatherableSupply.Value.GetComponent<Collider>();
             _animator = Unit.Value.UnitAnimator;
+            _collider = GatherableSupply.Value.GetComponent<Collider>();
             _supplyLayerMask = LayerMask.GetMask("Supplies");
             Vector3 targetPosition = GetTargetPosition();
             _agent.SetDestination(targetPosition);
@@ -47,6 +47,7 @@ namespace Code.Units.BT.Actions
         protected override Status OnUpdate()
         {
             _animator?.SetParameter(SpeedParameter.Value, _agent.velocity.magnitude);
+            
             if (_agent.pathPending || _agent.remainingDistance > _agent.stoppingDistance)
             {
                 return Status.Running;
@@ -60,7 +61,7 @@ namespace Code.Units.BT.Actions
             }
             
             //도착했는데 자원이 없거나, 누군가 채굴중이라면 주변에 다른 자원이 있는지 확인
-            if (!UpdateNearByNotBusySupply())
+            if (UpdateNearByNotBusySupply())
             {
                 _collider = GatherableSupply.Value.GetComponent<Collider>();
                 Vector3 targetPosition = GetTargetPosition();
@@ -132,6 +133,7 @@ namespace Code.Units.BT.Actions
         }
 
         #endregion
+       
     }
 }
 

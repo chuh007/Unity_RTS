@@ -4,74 +4,288 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1eb26494-0916-4ddd-b745-c2b3f0d2b735" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Cheats.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs.meta" afterDir="false" />
+    <list default="true" id="93e503cf-e70e-4884-916e-167260c5e25d" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/AttackCommandSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/AttackCommandSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/ResearchUpgradeCommandSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Commands/ResearchUpgradeCommandSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/CoreSystem/CreateManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/CoreSystem/CreateManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/CoreSystem/SceneInjector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/CoreSystem/SceneInjector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/PoolEffectPlayEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/PoolEffectPlayEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/ProjectileLaunchEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/ProjectileLaunchEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/UpgradeResearchedEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/UpgradeResearchedEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/AdditiveFloatModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/AdditiveFloatModifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/AdditiveIntModifierSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/AdditiveIntModifierSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/Dependency.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/Dependency.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/IModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/IModifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/InvalidPathException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/InvalidPathException.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/TechTreeSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/TechTreeSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/UpgradeSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/TechTree/UpgradeSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/AbstractCombatUnit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/AbstractCombatUnit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/AttackConfigSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/AttackConfigSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/DamageableSensor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/DamageableSensor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/IAttacker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/IAttacker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/IDamageable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/IDamageable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/Projectile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Combat/Projectile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/UnlockableSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/UnlockableSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Owner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/Owner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/SwordMan.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Units/SwordMan.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Util/ClosestGameObjectComparer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Util/ClosestGameObjectComparer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Util/DistanceUtil.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Code/Util/DistanceUtil.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity_RTS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity_RTS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Cheats.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Cheats.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Cheats/ResourceCheats.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/BaseCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/BaseCommandSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/BuildUnitCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/BuildUnitCommandSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/CancelConstructionCommandSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/CommandContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/CommandContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/ConstructBuildingCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructBuildingCommandSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/ConstructBuildingCommandSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructBuildingCommandSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/ConstructRestrictionSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/GatherCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/GatherCommandSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/IHasGhostPrefab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/IHasGhostPrefab.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/IConstructionCommand.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/MoveCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/MoveCommandSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/OverrideCommandsCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/OverrideCommandsCommandSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/StopCommandSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/StopCommandSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Commands/OverrideCommandsCommandSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Commands/OverrideCommandsCommandSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/CoreSystem/Bus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/CoreSystem/Bus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingDeathEvent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/BuildingSpawnEvent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/SupplyEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/SupplyEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/GameEvents/SupplyEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/GameEvents/SupplyEvent.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Players/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Players/UserSupplies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/UserSupplies.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Players/UserSupplies.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Players/UserSupplies.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Components/BuildingQueueButtonUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/BuildingQueueButtonUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Components/CommandButtonUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/CommandButtonUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Components/Tooltip.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/BuildingSelectedUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/CommandUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/CommandUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/GenerateUnitUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/GenerateUnitUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SingleUnitSelectUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/SupplyUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SupplyUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/SupplyUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/SupplyUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnderConstructionUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/Containers/UnitIconUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/UI/RuntimeUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/UI/RuntimeUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/AbstractCommandable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/AbstractCommandable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/AbstractUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/AbstractUnit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Animations.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Animations.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Animations/ParameterSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Animations/ParameterSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Animations/ParameterSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Animations/ParameterSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Animations/UnitAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Animations/UnitAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Animations/UnitAnimator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Animations/UnitAnimator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ConstructionBuildingAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ConstructionBuildingAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ConstructionBuildingAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ConstructionBuildingAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/GatherSuppliesAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/GatherSuppliesAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToAvailableSupplyAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToAvailableSupplyAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToAvailableSupplyAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToAvailableSupplyAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToTargetGameObjectAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToTargetGameObjectAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToTargetLocationAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToTargetLocationAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/PickWithinRenderBoundAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/PickWithinRenderBoundAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/PickWithinRenderBoundAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/PickWithinRenderBoundAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ResetUnitCommandOverrideAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ResetUnitCommandOverrideAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ResetUnitCommandOverrideAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ResetUnitCommandOverrideAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/RotateToTargetAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/RotateToTargetAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/RotateToTargetAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/RotateToTargetAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SampleNearPositionAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SampleNearPositionAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SampleNearPositionAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SampleNearPositionAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetNavAgentEnableAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetNavAgentEnableAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetNavAgentEnableAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetNavAgentEnableAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetUnitAnimatorTriggerAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetUnitAnimatorTriggerAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetUnitAnimatorTriggerAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetUnitAnimatorTriggerAction.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/StartConstructionAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/StartConstructionAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/StartConstructionAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/StartConstructionAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/TranslatePositionAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/TranslatePositionAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/TranslatePositionAction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Actions/TranslatePositionAction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/BuildingIsInProgressCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/BuildingIsInProgressCondition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/BuildingIsInProgressCondition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/BuildingIsInProgressCondition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/ConstructionEventType.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Events.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Events.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/ConstructionEventChanel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/ConstructionEventChanel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/SupplyEventChannel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/SupplyEventChannel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/SupplyEventChannel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/Events/SupplyEventChannel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BT/VariableSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BT/VariableSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/BaseBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/BaseBuilding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionDummy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionDummy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionDummy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionDummy.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/ConstructionProgress.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/GhostPlacement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Buildings/IBuilding.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Data/AbstractUnitSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/AbstractUnitSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Data/AbstractUnitSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/AbstractUnitSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Data/BuildingSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/BuildingSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Data/BuildingSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/BuildingSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Data/UnitSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Data/UnitSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/IBuildingConstructor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/IBuildingConstructor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/IBuildingConstructor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/IBuildingConstructor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/SupplyCostSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Code/Units/Worker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Units/Worker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/GhostMat.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/GhostMat.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/SelectionDecal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/SelectionDecal.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/CommandButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/CommandButton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/SupplyBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/SupplyBar.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/SupplyBar.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/SupplyBar.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/AnimationParams.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/AnimationParams.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/AnimationParams/Attack param.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/AnimationParams/Attack param.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/AnimationParams/Attack param.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/AnimationParams/Attack param.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/AnimationParams/MoveSpeed param.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/AnimationParams/MoveSpeed param.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/AnimationParams/MoveSpeed param.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/AnimationParams/MoveSpeed param.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construct building Var.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construct building Var.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construct building Var.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construct building Var.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction Event Channel Var.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction Event Channel Var.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction Event Channel Var.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction Event Channel Var.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction dummy Var.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction dummy Var.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction dummy Var.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/Construction dummy Var.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/BTVariables/SupplyEventChannel Var.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/BTVariables/SupplyEventChannel Var.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm Ghost.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm Ghost.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm Ghost.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm Ghost.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/FarmSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/FarmSO.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm_Construction.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm_Construction.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm_Construction.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/Farm/Farm_Construction.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HQ_ConstructionDummy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HQ_ConstructionDummy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HQ_ConstructionDummy.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HQ_ConstructionDummy.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter Ghost.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter Ghost.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter Ghost.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter Ghost.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarterSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Buildings/HeadQuarter/HeadQuarterSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Cancel construction.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Cancel construction.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Cancel construction.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Cancel construction.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Cancel override command.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Cancel override command.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Cancel override command.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Cancel override command.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Construct HQ command.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Construct HQ command.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Construct HQ command.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Construct HQ command.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Construct farm command.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Construct farm command.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Construct farm command.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Construct farm command.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/2Extents must be on navmesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/2Extents must be on navmesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/2Extents must be on navmesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/2Extents must be on navmesh.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/6Unit From supplies.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/6Unit From supplies.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/6Unit From supplies.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/ConstructRestrictions/6Unit From supplies.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Show Construction command.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Show Construction command.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Commands/Show Construction command.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Commands/Show Construction command.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/120 Mineral 50 Gas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/120 Mineral 50 Gas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/120 Mineral 50 Gas.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/120 Mineral 50 Gas.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/200 Mineral.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/200 Mineral.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/200 Mineral.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/200 Mineral.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/400 Mineral.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/400 Mineral.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/400 Mineral.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/400 Mineral.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/50 Mineral.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/50 Mineral.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Cost/50 Mineral.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Cost/50 Mineral.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/Worker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/Worker.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/WorkerBT.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/WorkerBT.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/WorkerSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/WorkerSO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_attack_A.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_attack_A.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_attack_A.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_attack_A.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_idle.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_idle.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_move.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_move.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Units/Worker/worker_move.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Units/Worker/worker_move.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/Air Transport Emission.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/Air Transport Emission.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Characters Toon.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Characters Toon.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Emission.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Emission.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Toon.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/SciFi Pack/Materials/SciFi Toon.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/FX/materials/TT_RTS_FX_meshes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/FX/materials/TT_RTS_FX_meshes.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/FX/meshes/Materials/FX_MeshParts.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/FX/meshes/Materials/FX_MeshParts.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/animation/animation_infantry/Infantry/infantry_01_idle.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/animation/animation_infantry/Infantry/infantry_01_idle.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/TT_RTS_Banners.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/TT_RTS_Banners.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_blue_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_blue_A.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_blue_B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_blue_B.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_brown.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_brown.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_green_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_green_A.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_green_B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_green_B.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_orange.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_orange.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_pink.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_pink.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_white.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_white.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/extras/banners/materials/colors/TT_Banner_yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/TT_RTS_Buildings.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/TT_RTS_Buildings.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/TT_RTS_Units.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/TT_RTS_Units.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_blueB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_blueB.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_brown.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_brown.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_greenB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_greenB.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_pink.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_pink.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_tan.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_tan.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_white.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_white.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Buildings/TT_RTS_buildings_yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_blueB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_blueB.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_brown.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_brown.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_greenB.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_greenB.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_pink.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_pink.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_tan.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_tan.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_white.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_white.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/models/materials/color/Units/TT_RTS_Units_yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/sample_scene/animation_samples/sample_shield.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/sample_scene/animation_samples/sample_shield.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/sample_scene/ground_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/TT_RTS_Standard/sample_scene/ground_mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unity_RTS.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,21 +296,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ConstructionBuildingAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/MoveToAvailableSupplyAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/PickWithinRenderBoundAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/ResetUnitCommandOverrideAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/RotateToTargetAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/SetUnitAnimatorTriggerAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/StartConstructionAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Actions/TranslatePositionAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/BuildingIsInProgressCondition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/Units/BT/Conditions/IsNotDeadUnitCondition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="32POUN2wMH1J4SI4jAh1LEoKLak" />
+  <component name="ProjectId" id="34Mt5WaeYexUgGyuAoR17ne07Yy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -116,7 +322,7 @@
 }</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\UnityVersion\6000.0.51f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\UnityVersion\6000.0.59f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\anyunity\NewUnityFiles\Unity_RTS -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Unity_RTS" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -124,7 +330,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\UnityVersion\6000.0.51f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\UnityVersion\6000.0.59f2\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\anyunity\NewUnityFiles\Unity_RTS -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\anyunity\NewUnityFiles\Unity_RTS" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -161,18 +367,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="1eb26494-0916-4ddd-b745-c2b3f0d2b735" name="변경" comment="" />
-      <created>1757318756845</created>
+      <changelist id="93e503cf-e70e-4884-916e-167260c5e25d" name="변경" comment="" />
+      <created>1761035085715</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1757318756845</updated>
-      <workItem from="1757318758676" duration="8761000" />
-      <workItem from="1757404601825" duration="9992000" />
-      <workItem from="1758010359398" duration="2967000" />
-      <workItem from="1758016570440" duration="4574000" />
-      <workItem from="1758527662874" duration="9864000" />
-      <workItem from="1758614226488" duration="9601000" />
-      <workItem from="1759133065161" duration="8313000" />
+      <updated>1761035085715</updated>
+      <workItem from="1761035086968" duration="5367000" />
+      <workItem from="1761551726312" duration="9456000" />
     </task>
     <servers />
   </component>

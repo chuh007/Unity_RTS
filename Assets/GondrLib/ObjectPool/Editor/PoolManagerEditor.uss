@@ -1,0 +1,5 @@
+.top-bar {
+    flex-basis: 30px;
+    align-items: flex-end;
+    justify-content: space-around;
+}

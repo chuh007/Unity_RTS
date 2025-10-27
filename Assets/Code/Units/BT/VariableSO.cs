@@ -14,7 +14,9 @@ namespace Code.Units.BT
         SupplyEventChannel,
         ConstructionDummy,
         ConstructBuildingSO,
-        ConstructionEventChannel
+        ConstructionEventChannel,
+        AttackConfig,
+        FirePositionTrm,
     }
 
     [CreateAssetMenu(fileName = "Variable data", menuName = "Units/BT/Variable", order = 10)]

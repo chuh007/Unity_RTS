@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Code.Commands
 {
@@ -6,6 +6,7 @@ namespace Code.Commands
     public class OverrideCommandsCommandSO : BaseCommandSO
     {
         [field: SerializeField] public BaseCommandSO[] Commands { get; private set; }
+        
         public override bool CanHandle(CommandContext context)
         {
             return context.Commandable is not null;

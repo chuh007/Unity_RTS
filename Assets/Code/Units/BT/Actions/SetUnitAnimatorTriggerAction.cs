@@ -8,7 +8,7 @@ using Action = Unity.Behavior.Action;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Set UnitAnimator trigger", story: "Set [Unit] trigger [ParameterSO]", category: "Action/Animation", id: "9f57bd767c94546e68cad807574128d6")]
+    [NodeDescription(name: "Set UnitAnimator trigger", story: "Set [Unit] trigger [ParameterSO]", category: "Action/Animation", id: "ab3e1dff5e76d5b81fc59d9abcee495b")]
     public partial class SetUnitAnimatorTriggerAction : Action
     {
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
@@ -18,7 +18,7 @@ namespace Code.Units.BT.Actions
         {
             if (Unit.Value == null || Unit.Value.UnitAnimator == null)
                 return Status.Failure;
-
+            
             Unit.Value.UnitAnimator.SetParameter(ParameterSO.Value);
             
             return Status.Success;

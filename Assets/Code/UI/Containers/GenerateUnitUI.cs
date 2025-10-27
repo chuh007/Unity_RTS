@@ -41,9 +41,9 @@ namespace Code.UI.Containers
             _generateCoroutine = null;
         }
         
-        private void HandleQueueUpdate(UnitSO[] unitsInQueue)
+        private void HandleQueueUpdate(UnlockableSO[] unlockableInQueue)
         {
-            if (unitsInQueue.Length == 1 && _generateCoroutine == null)
+            if (unlockableInQueue.Length == 1 && _generateCoroutine == null)
             {
                 _generateCoroutine = StartCoroutine(UpdateUnitProgress());
             }

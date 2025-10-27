@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Code.UI.Components
 {
-    public class BuildingQueueButtonUI : MonoBehaviour, IUIElement<UnitSO, UnityAction>
+    public class BuildingQueueButtonUI : MonoBehaviour, IUIElement<UnlockableSO, UnityAction>
     {
         [SerializeField] private Image iconImage;
         [SerializeField] private Button button;
@@ -16,7 +16,7 @@ namespace Code.UI.Components
             Disable();
         }
 
-        public void EnableFor(UnitSO item, UnityAction callback)
+        public void EnableFor(UnlockableSO item, UnityAction callback)
         {
             button.onClick.RemoveAllListeners();
             button.interactable = true;

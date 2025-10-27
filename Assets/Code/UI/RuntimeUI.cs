@@ -8,7 +8,6 @@ using Code.Players;
 using Code.UI.Containers;
 using Code.Units;
 using Code.Units.Buildings;
-using Code.Units.Data;
 using UnityEngine;
 
 namespace Code.UI
@@ -16,22 +15,23 @@ namespace Code.UI
     public class RuntimeUI : MonoBehaviour
     {
         [SerializeField] private CommandUI commandUI;
-        // [SerializeField] private GenerateUnitUI generateUnitUI;
+        //[SerializeField] private GenerateUnitUI generateUnitUI;
         [SerializeField] private BuildingSelectedUI buildingSelectedUI;
         
         [SerializeField] private SupplyUI supplyUI;
         
         [SerializeField] private UnitIconUI unitIconUI;
         [SerializeField] private SingleUnitSelectUI singleUnitSelectUI;
+        [SerializeField] private Owner uiOwner = Owner.Player;
         
         private HashSet<AbstractCommandable> _selectedUnits = new HashSet<AbstractCommandable>(12);
 
         private void Awake()
         {
-            Bus<UnitSelectEvent>.OnEvent += HandleUnitSelect;
-            Bus<UnitDeselectEvent>.OnEvent += HandleUnitDeselect;
-            Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
-            // Bus<SupplyEvent>.OnEvent += HandleSupplyChange;
+            Bus<UnitSelectEvent>.OnEvents[uiOwner] += HandleUnitSelect;
+            Bus<UnitDeselectEvent>.OnEvents[uiOwner] += HandleUnitDeselect;
+            Bus<UnitDeathEvent>.OnEvents[uiOwner] += HandleUnitDeath;
+            //Bus<SupplyEvent>.OnEvents[uiOwner] += HandleSupplyChange;
         }
 
         private void Start()
@@ -43,15 +43,16 @@ namespace Code.UI
 
         private void OnDestroy()
         {
-            Bus<UnitSelectEvent>.OnEvent -= HandleUnitSelect;
-            Bus<UnitDeselectEvent>.OnEvent -= HandleUnitDeselect;
-            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
-            // Bus<SupplyEvent>.OnEvent -= HandleSupplyChange;
+            Bus<UnitSelectEvent>.OnEvents[uiOwner] -= HandleUnitSelect;
+            Bus<UnitDeselectEvent>.OnEvents[uiOwner] -= HandleUnitDeselect;
+            Bus<UnitDeathEvent>.OnEvents[uiOwner] -= HandleUnitDeath;
+            //Bus<SupplyEvent>.OnEvents[uiOwner] -= HandleSupplyChange;
             UserSupplies.Instance.OnSupplyChanged -= HandleSupplyChange;
         }
 
-        private void HandleSupplyChange(int amount, SupplySO supplyType)
+        private void HandleSupplyChange(Owner owner,  int amount, SupplySO supplyType)
         {
+            if(owner != uiOwner) return;
             commandUI.EnableFor(_selectedUnits);
         }
 

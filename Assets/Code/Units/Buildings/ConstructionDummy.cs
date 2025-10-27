@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Code.CoreSystem;
 using Code.GameEvents;
 using Code.Units.Data;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.XR;
 
 namespace Code.Units.Buildings
 {
@@ -19,7 +19,6 @@ namespace Code.Units.Buildings
         [field: SerializeField]
         public ConstructionProgress ProgressData { get; private set; }
             = new ConstructionProgress(BuildingState.Ghost, 0, 0);
-        
         [field: SerializeField] public Renderer MainRenderer { get; private set; }
 
         public IBuildingConstructor UnitBuildingThis
@@ -29,10 +28,11 @@ namespace Code.Units.Buildings
             {
                 if (_unitBuildingThis != value)
                 {
-                    Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
+                    Bus<UnitDeathEvent>.OnEvents[Owner] -= HandleUnitDeath;
                     if (value != null)
-                        Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
+                        Bus<UnitDeathEvent>.OnEvents[Owner] += HandleUnitDeath;
                 }
+
                 _unitBuildingThis = value;
             }
         }
@@ -41,25 +41,26 @@ namespace Code.Units.Buildings
         {
             base.Start();
             BuildingSo = UnitSo as BuildingSO;
-            Debug.Assert(BuildingSo != null, $"BuildingSo is not assigned in {name}");
+            Debug.Assert(BuildingSo != null, $"BuildingSO is not assigned in {name}");
             CurrentHealth = 0;
         }
-        
+
         public void UpdateConstructionProgress(float progress)
         {
             if (progress < 0 || progress > 1 || _currentStateIndex >= constructionStage.Length)
                 return;
-
-            if (_currentStateIndex == 0 && progress > 0.45f)
+            
+            if(_currentStateIndex == 0 && progress > 0.45f)
                 ChangeConstructionStage(1);
-
-            if (_currentStateIndex == 1 && progress > 0.9f)
+            
+            if(_currentStateIndex == 1 && progress > 0.9f)
                 ChangeConstructionStage(2);
         }
 
         public void StartPlacementGhost(IBuildingConstructor constructor)
         {
-            UnitBuildingThis = constructor;
+            Owner = constructor.Owner;
+            UnitBuildingThis = constructor; //신희섭 이거 할때 아!..라고 하면서 따지기 시작함.
             SetGhostVisual(true);
             ProgressData = new ConstructionProgress(BuildingState.Ghost, Time.time, 0);
         }
@@ -67,6 +68,7 @@ namespace Code.Units.Buildings
         public void StartConstruction(IBuildingConstructor constructor)
         {
             UnitBuildingThis = constructor;
+            //Owner = constructor.Owner;
             if (ProgressData.State == BuildingState.Ghost)
             {
                 SetGhostVisual(false);
@@ -80,7 +82,7 @@ namespace Code.Units.Buildings
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
+            Bus<UnitDeathEvent>.OnEvents[Owner] -= HandleUnitDeath;
         }
 
         private void HandleUnitDeath(UnitDeathEvent evt)
@@ -97,8 +99,9 @@ namespace Code.Units.Buildings
                     BuildingState.Paused,
                     ProgressData.StartTime,
                     (Time.time - ProgressData.StartTime) / BuildingSo.BuildTime);
+
+                Bus<UnitDeathEvent>.OnEvents[Owner] -= HandleUnitDeath;
             }
-            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
         }
         
         private void ChangeConstructionStage(int index)
@@ -124,5 +127,6 @@ namespace Code.Units.Buildings
                 DeSelect();
             }
         }
+
     }
 }

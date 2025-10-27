@@ -1,12 +1,13 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Code.Units.Buildings
 {
     public enum BuildingState
     {
-        Ghost, Constructing, Paused, Completed, Destoryed
+        Ghost, Constructing, Paused, Completed, Destroyed
     }
+    
     [Serializable]
     public struct ConstructionProgress
     {
@@ -16,9 +17,9 @@ namespace Code.Units.Buildings
 
         public ConstructionProgress(BuildingState state, float startTime, float progress)
         {
+            State = state;
             StartTime = startTime;
             Progress = progress;
-            State = state;
         }
     }
 }

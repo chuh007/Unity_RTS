@@ -1,9 +1,8 @@
-﻿using System;
 using UnityEngine;
 
 namespace Code.Units.Animations
 {
-    [CreateAssetMenu(fileName = "Animator param", menuName = "Units/Parameter", order = 0)]
+    [CreateAssetMenu(fileName = "Animator param", menuName = "Units/Parameter", order = 20)]
     public class ParameterSO : ScriptableObject
     {
         [field:SerializeField] public string ParamName { get; private set; }

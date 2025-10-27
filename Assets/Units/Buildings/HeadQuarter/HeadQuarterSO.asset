@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8199c2fe44ad48df9a68eef3010ed2f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b03443c74da4445a4e24a1226233d1a, type: 3}
   m_Name: HeadQuarterSO
   m_EditorClassIdentifier: 
   <Name>k__BackingField: HeadQuarter
-  <Health>k__BackingField: 400
-  <Prefab>k__BackingField: {fileID: 8084630434893356598, guid: b452318bb9385544a806ffab338c353f, type: 3}
   <BuildTime>k__BackingField: 30
   <Icon>k__BackingField: {fileID: 21300000, guid: d479fbb4b257a410db2d438a01ab62bb, type: 3}
-  <Cost>k__BackingField: {fileID: 11400000, guid: 40f515e93d091634fa6f32dfe6d1ccca, type: 2}
-  <ConstructionDummy>k__BackingField: {fileID: 3571172547299757667, guid: 07751ab8de4c93244854e943e0854ee6, type: 3}
+  <Cost>k__BackingField: {fileID: 11400000, guid: 335d6b866117087449d9f3410575b905, type: 2}
+  <TechTree>k__BackingField: {fileID: 11400000, guid: e01dbb866e663d34cab9937164d4c538, type: 2}
+  <UnlockRequirements>k__BackingField: []
+  <Health>k__BackingField: 400
+  <Prefab>k__BackingField: {fileID: 8084630434893356598, guid: b452318bb9385544a806ffab338c353f, type: 3}
+  <ConstructionDummy>k__BackingField: {fileID: 614142378439772223, guid: fde001e7a664a6f47984e8619a6ccf1c, type: 3}

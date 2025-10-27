@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a42b14d785f434ea3679587d2217a41, type: 3}
   m_Name: WorkerSO
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 40
-  <Prefab>k__BackingField: {fileID: 8709380931176580822, guid: 41d0d76b3a924c74c82b28fddc29bb11, type: 3}
+  <Name>k__BackingField: Worker
   <BuildTime>k__BackingField: 3
   <Icon>k__BackingField: {fileID: 21300000, guid: d2b771480eece46cca4f48a40e491c5c, type: 3}
-  <Cost>k__BackingField: {fileID: 11400000, guid: fc363af9eff0e444f8bdae5fbe88479b, type: 2}
+  <Cost>k__BackingField: {fileID: 11400000, guid: ba6c183e52c6de7408c6a270298b1c55, type: 2}
+  <TechTree>k__BackingField: {fileID: 11400000, guid: e01dbb866e663d34cab9937164d4c538, type: 2}
+  <UnlockRequirements>k__BackingField:
+  - {fileID: 11400000, guid: c9b80772b0f20124a8ede3b892f868fd, type: 2}
+  <Health>k__BackingField: 40
+  <Prefab>k__BackingField: {fileID: 8709380931176580822, guid: 41d0d76b3a924c74c82b28fddc29bb11, type: 3}
+  <Upgrades>k__BackingField: []
+  <AttackConfig>k__BackingField: {fileID: 11400000, guid: d2e0a77c091b91848b701a22bb4431e9, type: 2}

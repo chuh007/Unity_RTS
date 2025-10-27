@@ -10,7 +10,7 @@ using Object = UnityEngine.Object;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Construction building", story: "[Unit] construct [BuildingSO] at [TargetLocation]", category: "Action/Building", id: "6e6a13bdbe87f2af1161f773b8d27842")]
+    [NodeDescription(name: "Construction building", story: "[Unit] construct [BuildingSO] at [TargetLocation]", category: "Action/Building", id: "06dcad7d31d2d91151bd414c3d66ea2e")]
     public partial class ConstructionBuildingAction : Action
     {
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
@@ -21,7 +21,7 @@ namespace Code.Units.BT.Actions
 
         private float _startBuildTime;
         private float _targetHealth;
-        private Vector3 _finalPosition;
+        //private Vector3 _finalPosition;
         
         protected override Status OnStart()
         {
@@ -29,9 +29,9 @@ namespace Code.Units.BT.Actions
                 || Dummy.Value == null)
                 return Status.Failure;
             
-            // Dummy.Value.UpdateConstructionProgress(0);
+            //Dummy.Value.UpdateConstructionProgress(0);
             _startBuildTime = Dummy.Value.ProgressData.StartTime;
-            _finalPosition = TargetLocation.Value;
+            //_finalPosition = TargetLocation.Value;
             
             return Status.Running;
         }
@@ -46,28 +46,27 @@ namespace Code.Units.BT.Actions
             {
                 int healAmount = Mathf.FloorToInt(_targetHealth);
                 Dummy.Value.Heal(healAmount);
-                _targetHealth -= healAmount;
+                _targetHealth -= healAmount; //소수점만 남는다.
             }
             
             if (normalizeTime >= 1)
             {
+                Vector3 position = Dummy.Value.transform.position;
                 GameObject newBuilding =
-                    Object.Instantiate(BuildingSO.Value.Prefab, _finalPosition, Quaternion.identity);
+                    Object.Instantiate(BuildingSO.Value.Prefab, position, Quaternion.identity);
                 
                 BaseBuilding building = newBuilding.GetComponent<BaseBuilding>();
-                if(Dummy.Value.IsSelected)
+                building.Owner = Dummy.Value.Owner;
+                if(Dummy.Value.IsSelected) //더미를 선택한 상태였다면 새로운 빌딩도 선택상태로 전환해서 생성
                     building.Select();
+
                 
                 Dummy.Value.ConstructionComplete();
                 Object.Destroy(Dummy.Value.gameObject);
                 Dummy.Value = null;
             }
-
+            
             return normalizeTime >= 1 ? Status.Success : Status.Running;
-        }
-
-        protected override void OnEnd()
-        {
         }
     }
 }

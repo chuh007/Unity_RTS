@@ -21,6 +21,9 @@ namespace Code.Players
     
     public class PlayerController : MonoBehaviour
     {
+        [Header("Settings")] 
+        [SerializeField] private Owner controlOwner = Owner.Player;
+        
         [Header("Selection settings")]
         [SerializeField] private InputReaderSO inputReader;
         [SerializeField] private LayerMask selectableUnitLayer;
@@ -49,22 +52,22 @@ namespace Code.Players
         {
             inputReader.OnMouseRightButton += HandleMouseRightButton;
 
-            Bus<UnitSelectEvent>.OnEvent += HandleUnitSelect;
-            Bus<UnitDeselectEvent>.OnEvent += HandleUnitDeselect;
-            Bus<UnitSpawnEvent>.OnEvent += HandleUnitSpawn;
-            Bus<UnitDeathEvent>.OnEvent += HandleUnitDeath;
-            Bus<CommandSelectEvent>.OnEvent += HandleCommandSelect;
+            Bus<UnitSelectEvent>.OnEvents[controlOwner] += HandleUnitSelect;
+            Bus<UnitDeselectEvent>.OnEvents[controlOwner] += HandleUnitDeselect;
+            Bus<UnitSpawnEvent>.OnEvents[controlOwner] += HandleUnitSpawn;
+            Bus<UnitDeathEvent>.OnEvents[controlOwner] += HandleUnitDeath;
+            Bus<CommandSelectEvent>.OnEvents[controlOwner] += HandleCommandSelect;
         }
 
         private void OnDestroy()
         {
             inputReader.OnMouseRightButton -= HandleMouseRightButton;
             
-            Bus<UnitSelectEvent>.OnEvent -= HandleUnitSelect;
-            Bus<UnitDeselectEvent>.OnEvent -= HandleUnitDeselect;
-            Bus<UnitSpawnEvent>.OnEvent -= HandleUnitSpawn;
-            Bus<UnitDeathEvent>.OnEvent -= HandleUnitDeath;
-            Bus<CommandSelectEvent>.OnEvent -= HandleCommandSelect;
+            Bus<UnitSelectEvent>.OnEvents[controlOwner] -= HandleUnitSelect;
+            Bus<UnitDeselectEvent>.OnEvents[controlOwner] -= HandleUnitDeselect;
+            Bus<UnitSpawnEvent>.OnEvents[controlOwner] -= HandleUnitSpawn;
+            Bus<UnitDeathEvent>.OnEvents[controlOwner] -= HandleUnitDeath;
+            Bus<CommandSelectEvent>.OnEvents[controlOwner] -= HandleCommandSelect;
         }
 
         private void Update()
@@ -74,7 +77,7 @@ namespace Code.Players
             HandleDragSelect();
             HandleGhostInstance();
         }
-        
+
         private void UpdateLeftButtonState()
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -114,7 +117,7 @@ namespace Code.Players
                 case ButtonState.Released: HandleDragEnd(); break;
             }
         }
-        
+
         private void HandleDragStart()
         {
             selectionBox.sizeDelta = Vector2.zero;
@@ -159,11 +162,11 @@ namespace Code.Players
             }
             selectionBox.gameObject.SetActive(false);
         }
-        
+
         private void HandleGhostInstance()
         {
-            if(_ghostInstance == null) return;
-            
+            if (_ghostInstance == null) return;
+
             if (Keyboard.current.escapeKey.wasReleasedThisFrame)
             {
                 Destroy(_ghostInstance.gameObject);
@@ -178,8 +181,8 @@ namespace Code.Players
 
                 if (_activeCommand is IConstructionCommand command)
                 {
-                    bool isPassRestiction = command.AllRestrictionPass(hit.point);
-                    _ghostInstance.SetPassRestriction(isPassRestiction);
+                    bool isPassRestriction = command.AllRestrictionPass(hit.point);
+                    _ghostInstance.SetPassRestriction(isPassRestriction);
                 }
             }
         }
@@ -229,7 +232,7 @@ namespace Code.Players
                         if (command.CanHandle(context))
                         {
                             command.Handle(context);
-                            if (command.IsSingleUnitCommand) return;
+                            if(command.IsSingleUnitCommand) return;
                             break; //첫번째로 가용한 명령을 수행한다.
                         }
                     }
@@ -264,7 +267,7 @@ namespace Code.Players
                 {
                     GameObject ghost = Instantiate(buildCommand.GhostPrefab);
                     _ghostInstance = ghost.GetComponent<GhostPlacement>();
-                    Debug.Assert(_ghostInstance != null,
+                    Debug.Assert(_ghostInstance != null, 
                         $"GhostPlacement script is missing on {buildCommand.GhostPrefab.name}");
                 }
             }
@@ -281,14 +284,10 @@ namespace Code.Players
 
         private void ActivateCommand(RaycastHit hit)
         {
-            if (_ghostInstance != null)
-            {
-                Destroy(_ghostInstance.gameObject);
-                _ghostInstance = null;
-            }
+            DestroyGhostIfExist();
             
             List<AbstractCommandable> abstractUnits = _selectedUnits.OfType<AbstractCommandable>().ToList();
-            
+
             for (int i = 0; i < abstractUnits.Count; i++)
             {
                 CommandContext context = new CommandContext(abstractUnits[i], hit, i);
@@ -296,11 +295,11 @@ namespace Code.Players
                 if (_activeCommand.CanHandle(context))
                 {
                     _activeCommand.Handle(context);
-                    if (_activeCommand.IsSingleUnitCommand)
+                    if(_activeCommand.IsSingleUnitCommand)
                         break;
                 }
             }
-            
+
             _activeCommand = null;
         }
 
@@ -342,20 +341,21 @@ namespace Code.Players
 
         private List<BaseCommandSO> GetAvailableCommands(AbstractUnit targetUnit)
         {
+            //해당 유닛이 가지고 있는 오버라이드 커맨드들을 전부 가져온다.
             OverrideCommandsCommandSO[] overrideCommands
                 = targetUnit.AvailableCommands.OfType<OverrideCommandsCommandSO>().ToArray();
-            
-            List<BaseCommandSO> allAvaliableCommands = new List<BaseCommandSO>();
+
+            List<BaseCommandSO> allAvailableCommands = new List<BaseCommandSO>();
             foreach (var overrideCommand in overrideCommands)
             {
-                allAvaliableCommands.AddRange(
+                allAvailableCommands.AddRange(
                     overrideCommand.Commands.Where(command => command is not OverrideCommandsCommandSO));
             }
-
-            allAvaliableCommands.AddRange(
-                targetUnit.AvailableCommands.Where(command => command is not OverrideCommandsCommandSO));
             
-            return allAvaliableCommands;
+            allAvailableCommands.AddRange(
+                targetUnit.AvailableCommands.Where(command => command is not OverrideCommandsCommandSO));
+
+            return allAvailableCommands;
         }
         
         #endregion

@@ -1,8 +1,9 @@
-﻿using Code.Environments;
+using Code.Environments;
 using Code.Players;
+using Code.Units;
 using TMPro;
 using UnityEngine;
-
+//여기 희섭이가 바꾸라고 지시했어. 안바꾸면 죽여버린다고함.
 namespace Code.UI.Containers
 {
     public class SupplyUI : MonoBehaviour, IUIElement<UserSupplies>
@@ -11,6 +12,7 @@ namespace Code.UI.Containers
         [SerializeField] private TextMeshProUGUI mineralText;
         [SerializeField] private SupplySO gasSO;
         [SerializeField] private TextMeshProUGUI gasText;
+        [SerializeField] private Owner uiOwner = Owner.Player;
         
         private UserSupplies _userSupplies;
         
@@ -18,13 +20,13 @@ namespace Code.UI.Containers
         {
             if (_userSupplies != null)
             {
-                _userSupplies.OnSupplyChanged -= UpdateSupplyUI;
+                _userSupplies.OnSupplyChanged -= UpdateSupplyUI;    
             }
             _userSupplies = item;
             _userSupplies.OnSupplyChanged += UpdateSupplyUI;
             
-            UpdateSupplyUI(_userSupplies.Minerals, mineralSO);
-            UpdateSupplyUI(_userSupplies.Gas, gasSO);
+            UpdateSupplyUI(uiOwner, _userSupplies.Minerals[uiOwner], mineralSO);
+            UpdateSupplyUI(uiOwner, _userSupplies.Gas[uiOwner], gasSO);
             
             gameObject.SetActive(true);
         }
@@ -36,11 +38,13 @@ namespace Code.UI.Containers
             _userSupplies = null;
         }
 
-        private void UpdateSupplyUI(int amount, SupplySO supplytype)
+        private void UpdateSupplyUI(Owner owner, int amount, SupplySO supplyType)
         {
-            if(supplytype.Equals(mineralSO))
+            if (owner != uiOwner) return;
+            
+            if(supplyType.Equals(mineralSO))
                 mineralText.SetText(amount.ToString());
-            if (supplytype.Equals(gasSO))
+            if(supplyType.Equals(gasSO))
                 gasText.SetText(amount.ToString());
         }
     }

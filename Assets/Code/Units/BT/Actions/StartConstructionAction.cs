@@ -8,20 +8,20 @@ using Action = Unity.Behavior.Action;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Start construction", story: "[Unit] start to [ConstructionDummy]", category: "Action/Building", id: "a4ef476cfc71b0174c1081c453af6f7d")]
+    [NodeDescription(name: "Start construction", story: "[Unit] start to [ConstructionDummy]", category: "Action/Building", id: "11cf20c199e338f8b47f982db698d387")]
     public partial class StartConstructionAction : Action
     {
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
         [SerializeReference] public BlackboardVariable<ConstructionDummy> ConstructionDummy;
-        
+
         protected override Status OnStart()
         {
-            if(ConstructionDummy.Value == null || !(Unit.Value is IBuildingConstructor constructor))
+            if (ConstructionDummy.Value == null || !(Unit.Value is IBuildingConstructor constructor))
                 return Status.Failure;
             
             ConstructionDummy.Value.StartConstruction(constructor);
-            // ConstructionDummy.Value.ChangeConstructionStage(0);
-            return Status.Running;
+            //ConstructionDummy.Value.ChangeConstructionStage(0);
+            return Status.Success;
         }
     }
 }

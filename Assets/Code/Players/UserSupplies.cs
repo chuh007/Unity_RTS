@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using Code.CoreSystem;
 using Code.Environments;
 using Code.GameEvents;
@@ -14,12 +15,12 @@ namespace Code.Players
         [SerializeField] private SupplySO mineralSO;
         [SerializeField] private SupplySO gasSO;
         
-        [field:SerializeField] public int Minerals { get; private set; }
-        [field:SerializeField] public int Gas { get; private set; }
-        
-        public delegate void SupplyChanged(int amount, SupplySO supplyType);
+        public Dictionary<Owner, int> Minerals { get; private set; }
+        public Dictionary<Owner, int> Gas { get; private set; }
+
+        public delegate void SupplyChanged(Owner owner, int amount, SupplySO supplyType);
         public event SupplyChanged OnSupplyChanged;
-        
+
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -27,35 +28,42 @@ namespace Code.Players
                 Destroy(gameObject);
                 return;
             }
+
             Instance = this;
             
-            Minerals = 0;
-            Gas = 0;
+            Minerals = new Dictionary<Owner, int>();
+            Gas = new Dictionary<Owner, int>();
 
-            Bus<SupplyEvent>.OnEvent += HandleSupplyEvent;
+            foreach (Owner owner in Enum.GetValues(typeof(Owner)))
+            {
+                Minerals.Add(owner, 0);
+                Gas.Add(owner, 0);
+            }
+            
+            Bus<SupplyEvent>.RegisterForAll(HandleSupplyEvent);
         }
 
         private void OnDestroy()
         {
-            Bus<SupplyEvent>.OnEvent -= HandleSupplyEvent;
+            Bus<SupplyEvent>.UnRegisterForAll(HandleSupplyEvent);
         }
 
         private void HandleSupplyEvent(SupplyEvent evt)
         {
             if (evt.SupplyData.Equals(mineralSO))
             {
-                Minerals += evt.Amount;
-                OnSupplyChanged?.Invoke(Minerals, mineralSO);
+                Minerals[evt.Owner] += evt.Amount;
+                OnSupplyChanged?.Invoke(evt.Owner, Minerals[evt.Owner], mineralSO);
             }
-
-            if (evt.SupplyData.Equals(gasSO))
+            
+            if(evt.SupplyData.Equals(gasSO))
             {
-                Gas += evt.Amount;
-                OnSupplyChanged?.Invoke(Gas, gasSO);
+                Gas[evt.Owner] += evt.Amount;
+                OnSupplyChanged?.Invoke(evt.Owner, Gas[evt.Owner], gasSO);
             }
         }
 
-        public bool HasEnoughSupplies(SupplyCostSO cost)
-            => Minerals >= cost.Minerals && Gas >= cost.Gas;
+        public bool HasEnoughSupplies(Owner owner, SupplyCostSO cost)
+            => Minerals[owner] >= cost.Minerals && Gas[owner] >= cost.Gas;
     }
 }

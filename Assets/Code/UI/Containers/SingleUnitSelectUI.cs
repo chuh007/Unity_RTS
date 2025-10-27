@@ -1,4 +1,4 @@
-﻿using Code.Units;
+using Code.Units;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ namespace Code.UI.Containers
 
         public void Disable()
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);   
         }
     }
 }

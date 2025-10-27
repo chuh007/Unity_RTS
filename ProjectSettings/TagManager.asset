@@ -15,7 +15,7 @@ TagManager:
   - Building
   - Floor
   - Supplies
-  - 
+  - DamageableSensor
   - 
   - WorldBounds
   - 

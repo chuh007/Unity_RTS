@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14a1199692b4757b54b0fce926e0fd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 739f46ea3d3545fe903fc4a2b96eafc2, type: 3}
   m_Name: MoveSpeed param
   m_EditorClassIdentifier: 
   <ParamName>k__BackingField: MoveSpeed

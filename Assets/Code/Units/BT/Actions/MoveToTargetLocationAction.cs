@@ -15,13 +15,14 @@ namespace Code.Units.BT.Actions
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
         [SerializeReference] public BlackboardVariable<Vector3> TargetLocation;
         [SerializeReference] public BlackboardVariable<ParameterSO> SpeedParameter;
-        
+
         private NavMeshAgent _agent;
         private UnitAnimator _animator;
         
         protected override Status OnStart()
         {
             if (Unit.Value == null) return Status.Failure;
+            
             _agent = Unit.Value.Agent;
             _animator = Unit.Value.UnitAnimator;
             if (_agent == null) return Status.Failure;
@@ -42,6 +43,7 @@ namespace Code.Units.BT.Actions
             {
                 _animator.SetParameter(SpeedParameter.Value, _agent.velocity.magnitude);
             }
+            
             if (_agent.pathPending == false && _agent.remainingDistance <= _agent.stoppingDistance)
             {
                 return Status.Success; 

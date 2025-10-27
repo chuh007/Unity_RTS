@@ -1,4 +1,4 @@
-﻿using Code.Units.Data;
+using Code.Units.Data;
 
 namespace Code.Units.Buildings
 {

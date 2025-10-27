@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e73a81559c4268b60e12d27ee5a742, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ad17a8481ed49e3b5f3e4b38c125d86, type: 3}
   m_Name: Cancel construction
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Cancel

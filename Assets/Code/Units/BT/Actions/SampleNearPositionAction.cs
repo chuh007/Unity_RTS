@@ -8,12 +8,12 @@ using Action = Unity.Behavior.Action;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Sample near position", story: "Set [TargetLocation] to the closest point on navmesh from [Unit]", category: "Action", id: "06458043b58171dc636b8095b50ca8e3")]
+    [NodeDescription(name: "Sample near position", story: "Set [TargetLocation] to the closest point on navmesh from [Unit]", category: "Action/Navigation", id: "5f6a406364d63db13d524ccd7ee4be20")]
     public partial class SampleNearPositionAction : Action
     {
         [SerializeReference] public BlackboardVariable<Vector3> TargetLocation;
         [SerializeReference] public BlackboardVariable<AbstractUnit> Unit;
-        
+
         [SerializeReference] public BlackboardVariable<float> Radius = new(5f);
         
         protected override Status OnStart()
@@ -34,7 +34,6 @@ namespace Code.Units.BT.Actions
                 TargetLocation.Value = navHit.position;
                 return Status.Success;
             }
-            
             return Status.Failure;
         }
     }

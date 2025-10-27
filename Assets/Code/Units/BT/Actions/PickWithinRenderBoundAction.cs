@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 namespace Code.Units.BT.Actions
 {
     [Serializable, GeneratePropertyBag]
-    [NodeDescription(name: "Pick within render bound", story: "Set [TargetLocation] to a random within [ConstructionDummy]", category: "Action/Navigation", id: "ea0b0475e1028a8bf62e85dc6ed1c3e3")]
+    [NodeDescription(name: "Pick within render bound", story: "Set [TargetLocation] to a random within [ConstructionDummy]", category: "Action/Navigation", id: "8de3752a0d07919d2dc7c64a2b690ddb")]
     public partial class PickWithinRenderBoundAction : Action
     {
         [SerializeReference] public BlackboardVariable<Vector3> TargetLocation;
@@ -17,15 +17,15 @@ namespace Code.Units.BT.Actions
 
         protected override Status OnStart()
         {
-            if (ConstructionDummy.Value == null || ConstructionDummy.Value.MainRenderer == null)
+            if (ConstructionDummy.Value == null || ConstructionDummy.Value.MainRenderer == null) 
                 return Status.Failure;
 
             Renderer mainRenderer = ConstructionDummy.Value.MainRenderer;
-            
-            Bounds bounds = mainRenderer.bounds;
-            Vector3 extents = bounds.extents; // 절반
 
-            int edgeAxis = Random.Range(0, 2);
+            Bounds bounds = mainRenderer.bounds;
+            Vector3 extents = bounds.extents; //절반크기
+
+            int edgeAxis = Random.Range(0, 2); //0은 x축, 1은 y축
             float x = 0, z = 0;
             if (edgeAxis == 0)
             {

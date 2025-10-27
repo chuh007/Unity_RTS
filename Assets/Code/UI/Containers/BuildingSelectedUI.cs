@@ -1,4 +1,4 @@
-﻿using Code.Units;
+using Code.Units;
 using Code.Units.Buildings;
 using Code.Units.Data;
 using UnityEngine;
@@ -10,7 +10,7 @@ namespace Code.UI.Containers
         [SerializeField] private GenerateUnitUI generateUnitUI;
         [SerializeField] private UnderConstructionUI underConstructionUI;
         [SerializeField] private SingleUnitSelectUI singleUnitSelectUI;
-        
+
         private BaseBuilding _selectedBuilding;
         
         public void EnableFor(IBuilding building)
@@ -23,16 +23,16 @@ namespace Code.UI.Containers
                 _selectedBuilding.OnQueueUpdated += HandleOnQueueUpdated;
                 
                 HandleOnQueueUpdated();
-                
             }else if (building is ConstructionDummy dummy)
             {
                 underConstructionUI.EnableFor(dummy);
             }
         }
 
-        private void HandleOnQueueUpdated(UnitSO[] _ = null)
+        private void HandleOnQueueUpdated(UnlockableSO[] _ = null)
         {
-            if(_selectedBuilding == null) return;
+            if (_selectedBuilding == null) return;
+
             if (_selectedBuilding.QueueSize > 0)
             {
                 generateUnitUI.EnableFor(_selectedBuilding);

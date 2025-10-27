@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23b4c3c5a5a478fb32f8a02fad02bfb, type: 3}
+  m_Script: {fileID: 11500000, guid: b47412b40a654c0c9cd5fad75ba5db0b, type: 3}
   m_Name: Show Construction command
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Construction
@@ -18,6 +18,8 @@ MonoBehaviour:
   <IsSingleUnitCommand>k__BackingField: 1
   <RequireClickToActivate>k__BackingField: 0
   <Commands>k__BackingField:
-  - {fileID: 11400000, guid: 5cc1f00d94cc7c7429b4cf82312f3046, type: 2}
-  - {fileID: 11400000, guid: db2bde61bb14cc74da9531d8652666c3, type: 2}
-  - {fileID: 11400000, guid: c39a36a3449ba5a4f97195384e383bb3, type: 2}
+  - {fileID: 11400000, guid: 3db38a224f801a442987de8b70698877, type: 2}
+  - {fileID: 11400000, guid: 7b0a36452ae651a4a81dd8d85c6a7f27, type: 2}
+  - {fileID: 11400000, guid: 93f1d136585c59f4dbc1e4c8b2653f63, type: 2}
+  - {fileID: 11400000, guid: 29d6700a905a8d44ba11fb5e0134e532, type: 2}
+  - {fileID: 11400000, guid: d08ba426857b8ea40a1ee4ff9955bd83, type: 2}

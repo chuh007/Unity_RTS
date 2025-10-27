@@ -15,21 +15,22 @@ namespace Code.Commands
         {
             //빌딩이면 유닛을 생산할 수 있다.
             return context.Commandable is BaseBuilding {QueueSize: < BaseBuilding.MAX_QUEUE_SIZE}
-                && UserSupplies.Instance != null
-                && UserSupplies.Instance.HasEnoughSupplies(Unit.Cost);
+                   && UserSupplies.Instance != null
+                   && UserSupplies.Instance.HasEnoughSupplies(context.Owner, Unit.Cost);
         }
 
         public override void Handle(CommandContext context)
         {
-            if (UserSupplies.Instance.HasEnoughSupplies(Unit.Cost) == false) return;
+            if (UserSupplies.Instance.HasEnoughSupplies(context.Owner, Unit.Cost) == false) return;
             
             BaseBuilding building = context.Commandable as BaseBuilding;
             
-            building.BuildUnit(Unit); //나중엔 조금더 복잡해진다.
+            building.BuildUnlockable(Unit); //나중엔 조금더 복잡해진다.
         }
-
-        public override bool IsLocked(CommandContext context)
-            => UserSupplies.Instance != null
-               && !UserSupplies.Instance.HasEnoughSupplies(Unit.Cost);
+        
+        public override bool IsLocked(CommandContext context) 
+            => !Unit.TechTree.IsUnlocked(context.Owner, Unit) ||
+               (UserSupplies.Instance != null 
+                && !UserSupplies.Instance.HasEnoughSupplies(context.Owner, Unit.Cost));
     }
 }

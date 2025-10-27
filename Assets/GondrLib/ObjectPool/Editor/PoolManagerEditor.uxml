@@ -1,0 +1,16 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/ObjectPool/Editor/PoolManagerEditor.uss?fileID=7433441132597879392&amp;guid=96aa6b84cf1d36d4d97be1e7d5dcb11c&amp;type=3#PoolManagerEditor" />
+    <engine:VisualElement name="Container" style="flex-grow: 1;">
+        <engine:VisualElement name="TopBar" class="top-bar">
+            <engine:Button text="New Item" name="CreateBtn" />
+        </engine:VisualElement>
+        <ObjectPool.Editor.MySplitView fixed-pane-initial-dimension="250">
+            <engine:VisualElement name="LeftPanel" style="flex-grow: 1;">
+                <engine:ScrollView name="ItemView" style="flex-grow: 1;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="RightPanel" style="flex-grow: 1;">
+                <engine:VisualElement name="InspectorView" style="flex-grow: 1;" />
+            </engine:VisualElement>
+        </ObjectPool.Editor.MySplitView>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,5 +1,6 @@
 using System;
 using Code.Units.Animations;
+using Code.Util;
 using TMPro;
 using Unity.Behavior;
 using Unity.Properties;
@@ -18,7 +19,7 @@ namespace Code.Units.BT.Actions
 
         [SerializeReference] public BlackboardVariable<float> MoveThreshold = new(0.25f);
         [SerializeReference] public BlackboardVariable<ParameterSO> SpeedParameter;
-        
+
         private NavMeshAgent _agent;
         private Vector3 _lastPosition;
         private Collider _targetCollider;
@@ -29,12 +30,15 @@ namespace Code.Units.BT.Actions
             if (Unit.Value == null || Unit.Value.Agent == null || TargetGameObject.Value == null)
                 return Status.Failure;
 
+            _animator = Unit.Value.UnitAnimator;
             _agent = Unit.Value.Agent;
-            Vector3 targetPosition = GetTargetPosition();
+            _targetCollider = TargetGameObject.Value.GetComponent<Collider>();
+            
+            Vector3 targetPosition 
+                = DistanceUtil.GetTargetPosition(Unit.Value.gameObject, _targetCollider);
             if (Vector3.Distance(targetPosition, _agent.transform.position) < _agent.stoppingDistance)
                 return Status.Success;
 
-            _targetCollider = TargetGameObject.Value.GetComponent<Collider>();
             _agent.SetDestination(targetPosition);
             _lastPosition = targetPosition;
             
@@ -45,7 +49,8 @@ namespace Code.Units.BT.Actions
         {
             _animator?.SetParameter(SpeedParameter.Value, _agent.velocity.magnitude);
             
-            Vector3 newTargetPosition = GetTargetPosition();
+            Vector3 newTargetPosition 
+                = DistanceUtil.GetTargetPosition(Unit.Value.gameObject, _targetCollider);
 
             if (Vector3.Distance(newTargetPosition, _lastPosition) >= MoveThreshold)
             {
@@ -61,15 +66,15 @@ namespace Code.Units.BT.Actions
             return Status.Running;
         }
         
-        private Vector3 GetTargetPosition()
-        {
-            if (_targetCollider != null)
-            {
-                return _targetCollider.ClosestPoint(_agent.transform.position);
-            }
-
-            return TargetGameObject.Value.transform.position;
-        }
+        // private Vector3 GetTargetPosition()
+        // {
+        //     if (_targetCollider != null)
+        //     {
+        //         return _targetCollider.ClosestPoint(_agent.transform.position);
+        //     }
+        //
+        //     return TargetGameObject.Value.transform.position;
+        // }
 
 
         protected override void OnEnd()

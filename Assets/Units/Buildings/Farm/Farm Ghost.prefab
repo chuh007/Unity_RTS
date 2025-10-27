@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7982212162017835837
+--- !u!1001 &1689469964580782269
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 600305831208464032, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c8de23d70243a7940a0b5921f4fc36e0, type: 2}
+      objectReference: {fileID: 2100000, guid: 3dcc31d9e5412e149841278154c58138, type: 2}
     - target: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
       propertyPath: m_Name
       value: Farm Ghost
@@ -66,32 +66,32 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2665306307313520334}
+      addedObject: {fileID: -2338582898334082061}
   m_SourcePrefab: {fileID: 100100000, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
---- !u!1 &6300553977794581879 stripped
+--- !u!23 &2244627709407866397 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 600305831208464032, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
+  m_PrefabInstance: {fileID: 1689469964580782269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3369994507221823223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4158673885207653962, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
-  m_PrefabInstance: {fileID: 7982212162017835837}
+  m_PrefabInstance: {fileID: 1689469964580782269}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2665306307313520334
+--- !u!114 &-2338582898334082061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6300553977794581879}
+  m_GameObject: {fileID: 3369994507221823223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f10c553a4e640abb27dde80a0917f1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 86706d1ec39e4b43b14cdc05d942aaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   errorTintColor: {r: 1, g: 0, b: 0, a: 1}
   errorFresnelColor: {r: 4, g: 1.7, b: 0, a: 1}
   availableTintColor: {r: 0.2, g: 0.65, b: 1, a: 1}
   availableFresnelColor: {r: 0.8, g: 1.5, b: 2.2, a: 1}
-  ghostRenderer: {fileID: 7391028566502577565}
---- !u!23 &7391028566502577565 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 600305831208464032, guid: a87e25999f3bb5d4b93e4cbfba2ef27a, type: 3}
-  m_PrefabInstance: {fileID: 7982212162017835837}
-  m_PrefabAsset: {fileID: 0}
+  ghostRenderer: {fileID: 2244627709407866397}

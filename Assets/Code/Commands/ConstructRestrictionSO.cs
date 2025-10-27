@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Code.Commands
 {
-    [CreateAssetMenu(fileName = "Construct restriction", menuName = "Buildings/Restriction", order = 0)]
+    [CreateAssetMenu(fileName = "Construct restriction", menuName = "Buildings/Restriction", order = 7)]
     public class ConstructRestrictionSO : ScriptableObject
     {
         public enum OverlapType
@@ -36,14 +36,14 @@ namespace Code.Commands
                 NavMeshQueryFilter filter = new()
                 {
                     areaMask = NavMesh.AllAreas,
-                    agentTypeID = this.NavMeshAgentTypeID
+                    agentTypeID = NavMeshAgentTypeID
                 };
-                
+
                 bool isOnNavMesh = IsFullyOnNavMesh(position, filter);
-                
-                return hitCnt == 0 || isOnNavMesh;
+
+                return hitCnt == 0 && isOnNavMesh;
             }
-            
+
             return hitCnt == 0;
         }
 
@@ -51,13 +51,16 @@ namespace Code.Commands
         {
             bool isOnNavMesh = NavMesh.SamplePosition(position + new Vector3(Extents.x, 0, Extents.z),
                 out NavMeshHit _, NavMeshTolerance, filter);
+            
             isOnNavMesh = isOnNavMesh && NavMesh.SamplePosition(position + new Vector3(Extents.x, 0, -Extents.z),
                 out NavMeshHit _, NavMeshTolerance, filter);
+            
             isOnNavMesh = isOnNavMesh && NavMesh.SamplePosition(position + new Vector3(-Extents.x, 0, Extents.z),
                 out NavMeshHit _, NavMeshTolerance, filter);
+            
             isOnNavMesh = isOnNavMesh && NavMesh.SamplePosition(position + new Vector3(-Extents.x, 0, -Extents.z),
                 out NavMeshHit _, NavMeshTolerance, filter);
-            
+
             return isOnNavMesh;
         }
     }

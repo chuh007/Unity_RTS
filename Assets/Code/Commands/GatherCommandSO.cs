@@ -23,11 +23,12 @@ namespace Code.Commands
             
             if(context.Hit.collider.TryGetComponent(out GatherableSupply gatherable))
                 worker.Gather(gatherable);
-            else if (IsHeadQuarter(context.Hit.collider) && worker.HasSupplies)
+            else if(IsHeadQuarter(context.Hit.collider) && worker.HasSupplies)
                 worker.ReturnSupplies(context.Hit.collider.gameObject);
             else
                 worker.MoveTo(context.Hit.collider.transform.position);
         }
+
 
         private bool IsGatherableSupplyOrHeadQuarter(Collider collider)
             => collider.TryGetComponent(out GatherableSupply _) || IsHeadQuarter(collider);
@@ -36,6 +37,5 @@ namespace Code.Commands
             => collider.TryGetComponent(out BaseBuilding building) && building.UnitSo.Equals(headQuarterSO);
         
         public override bool IsLocked(CommandContext context) => false;
-
     }
 }

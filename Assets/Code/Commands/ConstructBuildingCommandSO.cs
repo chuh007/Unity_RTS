@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Code.Players;
 using Code.Units;
 using Code.Units.Buildings;
@@ -14,11 +14,11 @@ namespace Code.Commands
         [field: SerializeField] public BuildingSO BuildingData { get; private set; }
         [field: SerializeField] public GameObject GhostPrefab { get; private set; }
         [field: SerializeField] public ConstructRestrictionSO[] Restrictions { get; private set; }
-        
+        //건설중일때는 CanHandle이 동작하지 않도록 만들어봐.
         public override bool CanHandle(CommandContext context)
         {
             if (context.Commandable is not IBuildingConstructor constructor || constructor.IsBuilding) return false;
-            
+
             if (context.Hit.collider != null && context.MouseButton == MouseButton.Right)
             {
                 //지어지다만 건물을 클릭한건지 체크
@@ -28,7 +28,7 @@ namespace Code.Commands
             }
             
             return UserSupplies.Instance != null
-                && UserSupplies.Instance.HasEnoughSupplies(BuildingData.Cost)
+                && UserSupplies.Instance.HasEnoughSupplies(context.Owner, BuildingData.Cost)
                 && AllRestrictionPass(context.Hit.point);
         }
 
@@ -45,7 +45,7 @@ namespace Code.Commands
                 constructor.ResumeConstruction(dummy);
             }
             else if(UserSupplies.Instance != null
-                    && UserSupplies.Instance.HasEnoughSupplies(BuildingData.Cost)
+                    && UserSupplies.Instance.HasEnoughSupplies(context.Owner, BuildingData.Cost)
                     && AllRestrictionPass(context.Hit.point))
             {       
                 //신규 건설을 하거나.
@@ -53,8 +53,10 @@ namespace Code.Commands
             }
         }
         
-        public override bool IsLocked(CommandContext context)
-            => UserSupplies.Instance != null
-               && !UserSupplies.Instance.HasEnoughSupplies(BuildingData.Cost);
+        public override bool IsLocked(CommandContext context) 
+            => !BuildingData.TechTree.IsUnlocked(context.Owner, BuildingData) ||
+                (UserSupplies.Instance != null 
+               && !UserSupplies.Instance.HasEnoughSupplies(context.Owner, BuildingData.Cost));
+
     }
 }

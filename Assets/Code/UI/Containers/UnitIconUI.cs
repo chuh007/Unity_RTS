@@ -1,4 +1,4 @@
-﻿using Code.Units;
+using Code.Units;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +9,7 @@ namespace Code.UI.Containers
     {
         [SerializeField] private Image icon;
         [SerializeField] private TextMeshProUGUI healthText;
-        
+
         private AbstractCommandable _commandable;
         private const string HEALTH_FORMAT = "{0} / {1}";
         
@@ -22,12 +22,11 @@ namespace Code.UI.Containers
 
             _commandable.OnHealthUpdated -= HandleHealthUpdate;
             _commandable.OnHealthUpdated += HandleHealthUpdate;
-
         }
 
         private void HandleHealthUpdate(AbstractCommandable commandable, int lastHealth, int newHealth)
         {
-            if(healthText == null) return;
+            if (healthText == null) return;
             healthText.SetText(string.Format(HEALTH_FORMAT, newHealth, commandable.MaxHealth));
         }
 

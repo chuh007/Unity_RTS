@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 8359741922315283334}
   - component: {fileID: 2410671794672116577}
   - component: {fileID: 9057356048879448701}
-  - component: {fileID: 8815341472941765972}
+  - component: {fileID: 8621637721784684399}
   m_Layer: 5
   m_Name: Tooltip
   m_TagString: Untagged
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
---- !u!114 &8815341472941765972
+--- !u!114 &8621637721784684399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,11 +297,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3959600900952745090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a42f3a200cc94204b1686502643f7eee, type: 3}
+  m_Script: {fileID: 11500000, guid: eab7d8b4e4904f668be0f6512042f476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <RectTransform>k__BackingField: {fileID: 8359741922315283334}
-  <MoverDelay>k__BackingField: 0.5
+  <HoverDelay>k__BackingField: 0.5
   tooltipText: {fileID: 533904122206387677}
 --- !u!1 &5887979168021721947
 GameObject:
@@ -440,5 +440,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8020709097839448314}
   button: {fileID: 4160480623152315388}
-  tooltip: {fileID: 8815341472941765972}
-  disabledColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
+  tooltip: {fileID: 8621637721784684399}
+  disabledColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
